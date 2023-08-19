@@ -6,9 +6,15 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "predeploy":"npm run build",
+    "deploy":"gh-pages -d build"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.14.3",
+    "@mui/material": "^5.14.5",
     "@rainbow-me/rainbowkit": "^1.0.8",
     "next": "^13.4.3",
     "react": "^18.2.0",
@@ -21,6 +27,7 @@
     "@types/react": "^18.2.6",
     "eslint": "^8.15.0",
     "eslint-config-next": "^13.4.3",
+    "gh-pages": "^6.0.0",
     "typescript": "^5.0.4"
   }
 }
