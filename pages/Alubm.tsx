@@ -76,7 +76,7 @@ export default function Album() {
           {/* Hero unit */}
           <Box
             sx={{
-              bgcolor: '',
+              bgcolor: 'rgba(217,234,211,0.7)',
               pt: 20,
               pb: 8,
             }}
