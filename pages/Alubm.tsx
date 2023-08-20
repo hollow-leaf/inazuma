@@ -48,7 +48,7 @@ export default function Album() {
         <AppBar position="sticky" style={{backgroundColor: 'rgba(230,245,231,0.05)'}} >
           <Toolbar >
             <Typography variant="h6" color="white" >
-                <Link href='/' color="rgba(31,120,0)">
+                <Link href='https://crypto0627.github.io/cacahack/' color="rgba(31,120,0)">
                     CACAHACK
                 </Link>
             </Typography>
