@@ -21,6 +21,7 @@ import { ConnectButton } from '@rainbow-me/rainbowkit';
 import { useSendTransaction } from 'wagmi';
 import { useState } from 'react';
 import { SignTypedData } from '../component/SignTypedData';
+import { WriteContractPrepared } from '../component/WriteContractPrepared';
 
 function Copyright() {
     return (
@@ -64,7 +65,7 @@ export default function Album() {
             </Grid>
             <Grid container justifyContent="space-around" >
                 <Link href='#mechanism' color="rgba(31,120,0)">
-                    Mechanism
+                    Organization
                 </Link>
             </Grid>
             <Grid container justifyContent="flex-end" >
@@ -76,7 +77,7 @@ export default function Album() {
           {/* Hero unit */}
           <Box
             sx={{
-              bgcolor: 'rgba(217,234,211,0.7)',
+              bgcolor: 'rgba(217,234,211)',
               pt: 20,
               pb: 8,
             }}
@@ -94,15 +95,6 @@ export default function Album() {
               <Typography variant="h5" align="left" color="text.secondary" paragraph>
               We are Cathay company, dedicated to providing the enviroment carbon reduce service to our customers.
               </Typography>
-              <Stack
-                sx={{ pt: 4 }}
-                direction="row"
-                spacing={2}
-                justifyContent="center"
-              >
-                <Button variant="contained">User get Hypercert</Button>
-                <SignTypedData/>
-              </Stack>
             </Container>
           </Box>
           <Box
@@ -121,7 +113,7 @@ export default function Album() {
                 color="text.primary"
                 gutterBottom
               >
-                User Usee Case
+                User Use Case
               </Typography>
               <Typography variant="h5" align="center" color="text.secondary" paragraph>
             
@@ -132,15 +124,16 @@ export default function Album() {
                 spacing={2}
                 justifyContent="center"
               >
-                <Button variant="contained">User mint a Hypercert</Button>
-                <Button variant="outlined">Mechainism set Co2.Storage</Button>
+                {/* wagmi write contract */}
+                <WriteContractPrepared/>
+                <Button variant="outlined">submit Co2 information</Button>
               </Stack>
             </Container>
           </Box>
           <Box
             sx={{
               bgcolor: 'rgba(217,234,211)',
-              pt: 30,
+              pt: 20,
               pb: 8,
             }}
             id='mechanism'
@@ -153,11 +146,10 @@ export default function Album() {
                 color="text.primary"
                 gutterBottom
               >
-                Introduction
+                Organization Use Case
               </Typography>
               <Typography variant="h5" align="center" color="text.secondary" paragraph>
-              We are Cathay company, dedicated to providing the enviroment carbon reduce service to our
-              customers.
+              
               </Typography>
               <Stack
                 sx={{ pt: 4 }}
@@ -165,8 +157,8 @@ export default function Album() {
                 spacing={2}
                 justifyContent="center"
               >
-                <Button variant="contained">User mint a Hypercert</Button>
-                <Button variant="outlined">Mechainism set Co2.Storage</Button>
+                <Button variant="contained">Verify Co2 information</Button>
+                
               </Stack>
             </Container>
           </Box>

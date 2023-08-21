@@ -75,7 +75,7 @@ export function SignTypedData() {
 
     <>{
       <Button variant="outlined" disabled={isLoading} onClick={() => signTypedData()}>
-        {isLoading ? 'Check Wallet' : 'Mechanism Sign Message'}
+        {isLoading ? 'Check Wallet' : 'Sign Message'}
       </Button>
     }
     </>
