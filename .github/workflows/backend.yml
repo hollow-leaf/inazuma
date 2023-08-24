@@ -2,7 +2,8 @@ name: Backend deploy
 
 on: 
   push:
-    branches: ['*']
+    branches: 
+      - main
 
 permissions:
   contents: read
