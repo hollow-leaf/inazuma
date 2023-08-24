@@ -4,15 +4,15 @@ import { getDefaultWallets, RainbowKitProvider, darkTheme } from '@rainbow-me/ra
 import type { AppProps } from 'next/app';
 import { configureChains, createConfig, sepolia, WagmiConfig } from 'wagmi';
 import {
-  arbitrum,
   goerli,
   mainnet,
-  optimism,
   polygon,
   polygonMumbai,
-  zora,
 } from 'wagmi/chains';
 import { publicProvider } from 'wagmi/providers/public';
+import Navbar from '../components/navbar';
+import Footer from '../components/footer';
+
 
 const { chains, publicClient, webSocketPublicClient } = configureChains(
   [
@@ -43,7 +43,11 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <WagmiConfig config={wagmiConfig}>
       <RainbowKitProvider chains={chains}>
-        <Component {...pageProps} />
+        <div className='min-h-screen flex flex-col'>
+          <Navbar/>
+            <Component {...pageProps} />
+          <Footer/>
+        </div>
       </RainbowKitProvider>
     </WagmiConfig>
   );
