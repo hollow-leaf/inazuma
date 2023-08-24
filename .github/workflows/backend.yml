@@ -19,4 +19,5 @@ jobs:
       - name: Build and Deploy Docker
         working-directory: ./apps/backend
         run: |
+          chmod +x ./scripts/cicd.sh
           ./scripts/cicd.sh
