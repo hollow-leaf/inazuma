@@ -51,7 +51,7 @@ export default function Album() {
             <Typography variant="h6" color="white" >
                 <Link href='https://crypto0627.github.io/cacahack/' color="rgba(31,120,0)">
                     CACAHACK
-                </Link>
+                </Link>                
             </Typography>
             <Grid container justifyContent="space-around" >
                 <Link href='#banner' color="rgba(31,120,0)">

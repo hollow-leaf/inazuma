@@ -2,7 +2,7 @@
 const nextConfig = {
   output: 'export',
   reactStrictMode: true,
-  basePath:"/cacahack",
+  //basePath:"/cacahack",
   webpack: config => {
     config.resolve.fallback = { fs: false, net: false, tls: false };
     return config;
