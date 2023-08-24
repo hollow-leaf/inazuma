@@ -4,16 +4,21 @@ on:
   push:
     branches:
       - main # The branch the action should deploy from.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout 🛎️
-        uses: actions/checkout@v2.3.1
+        uses: actions/checkout@v3
 
       - name: Use Node.js 16.x
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: '16.x'
 
@@ -26,13 +31,27 @@ jobs:
       
       - name: Install dependencies
         run: pnpm install
-
+      
+      # - name: Create Env File
+      #   run: |
+      #     touch ./apps/web/.env
+      #     echo NEXT_PUBLIC_PRIVATE_KEY=${{secrets.NEXT_PUBLIC_PRIVATE_KEY}} >> ./apps/web/.env
+      
       - name: Build my App
         run: pnpm run build
 
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@v4.4.1
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: gh-pages # The branch the action should deploy to.
-          FOLDER: apps/web/out # The folder the action should deploy.
+          path: apps/web/out
+  
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
