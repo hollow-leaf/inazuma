@@ -1,0 +1,18 @@
+version: '3.7'
+services:
+    inazuma_backend:
+        image: inazuma_backend
+        ports:
+            - '3000:8080'
+        restart: always
+        networks:
+            - inazuma_network
+        build:
+            context: ./
+            dockerfile: Dockerfile
+
+networks:
+  inazuma_network:
+    name: inazuma_network
+    driver: bridge
+
