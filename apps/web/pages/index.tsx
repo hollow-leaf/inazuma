@@ -9,7 +9,7 @@ const MapWithNoSSR = dynamic(() => import('../components/map'), {
 
 const Home: NextPage = () => {
   return (
-    <div >
+    <div>
       <Head>
         <title>Inazuma</title>
         <meta
@@ -18,7 +18,9 @@ const Home: NextPage = () => {
         />
         <link rel="shortcut icon" type="image/x-icon" href="public/favicon.ico" />
       </Head>
-        <MapWithNoSSR/>
+      <div className='w-1/2 mx-auto mt-20'>
+          <MapWithNoSSR/>
+      </div>
     </div>
   );
 };

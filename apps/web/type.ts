@@ -8,3 +8,10 @@ export type SellerTableItemType = {
     CID: string,
     sequence: number,
 }
+
+export type buyerTableItemType = {
+    powerType: string,
+    kWh: number,
+    date: string,
+    provider: string,
+}

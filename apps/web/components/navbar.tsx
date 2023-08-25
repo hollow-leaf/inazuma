@@ -3,7 +3,6 @@ import { useRouter } from "next/router";
 import Inazuma from "./inazuma";
 import Image from "next/image";
 
-
 export default function Navbar() {
   const router = useRouter();
   // shadow-[5px_5px_rgba(0,_98,_90,_0.4),_10px_10px_rgba(0,_98,_90,_0.3),_15px_15px_rgba(0,_98,_90,_0.2),_20px_20px_rgba(0,_98,_90,_0.1),_25px_25px_rgba(0,_98,_90,_0.05)]
@@ -35,15 +34,6 @@ export default function Navbar() {
               <a>Buyer</a>
             </li>
             <li>
-              <a>Parent</a>
-              <ul className="p-2">
-                <li>
-                  <a>Submenu 1</a>
-                </li>
-                <li>
-                  <a>Submenu 2</a>
-                </li>
-              </ul>
             </li>
             <li>
               <a>Seller</a>
@@ -64,20 +54,22 @@ export default function Navbar() {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <a>Buyer</a>
+            <a
+              onClick={() => {
+                router.push("./buyer");
+              }}
+            >
+              Buyer
+            </a>
           </li>
-          <li tabIndex={0}>
-            <details>
-              <summary>Parent</summary>
-              <ul className="p-2">
-                <li>
-                  <a>Submenu 1</a>
-                </li>
-                <li>
-                  <a>Submenu 2</a>
-                </li>
-              </ul>
-            </details>
+          <li>
+            <a
+              onClick={() => {
+                router.push("/");
+              }}
+            >
+              Home
+            </a>
           </li>
           <li>
             <a

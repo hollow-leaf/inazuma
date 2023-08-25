@@ -29,7 +29,7 @@ export default function Map() {
   //marker position
   const positionT:any=[[24.782301,121.006286],[25.060078,121.615915],[24.0851938,120.6777752],[23.0985729,120.2573986],[22.6043902,120.300311]]
   return (
-    <MapContainer center={center} zoom={25} style={{ height: '80vh' }} scrollWheelZoom={true}>
+    <MapContainer center={center} zoom={25} style={{ height: '60vh',borderRadius: '10px' }} scrollWheelZoom={true}>
       <TileLayer
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

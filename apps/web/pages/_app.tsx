@@ -98,7 +98,7 @@ const wagmiConfig = createConfig({
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <WagmiConfig config={wagmiConfig}>
-      <RainbowKitProvider chains={chains} theme={myCustomTheme} coolMode>
+      <RainbowKitProvider chains={chains} coolMode>
         <div className='min-h-screen flex flex-col'>
           <Navbar/>
             <Component {...pageProps} />
