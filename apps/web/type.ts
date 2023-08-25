@@ -3,4 +3,8 @@ export type SellerTableItemType = {
     kWh: number,
     date: string,
     status: boolean,
+    provider: string,
+    location: string,
+    CID: string,
+    sequence: number,
 }

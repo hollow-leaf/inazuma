@@ -4,9 +4,9 @@ import Inazuma from "./inazuma";
 
 export default function Navbar() {
   const router = useRouter();
-
+  // shadow-[5px_5px_rgba(0,_98,_90,_0.4),_10px_10px_rgba(0,_98,_90,_0.3),_15px_15px_rgba(0,_98,_90,_0.2),_20px_20px_rgba(0,_98,_90,_0.1),_25px_25px_rgba(0,_98,_90,_0.05)]
   return (
-    <div className="navbar bg-green-100 h-[100px] text-black">
+    <div className="navbar bg-green-100 h-[100px] text-black shadow-[rgba(13,_38,_76,_0.19)_0px_9px_20px]">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">

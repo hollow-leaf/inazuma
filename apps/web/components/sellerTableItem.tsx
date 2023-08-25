@@ -45,9 +45,18 @@ function SellerTableItem(props: SellerTableItemType) {
         </td>
         <td>{props.kWh}</td>
         <td>{props.date}</td>
-        <td>{props.status ? "Confirmed" : "Unconfirmed"}</td>
+        <td>{props.status ? "Confirmed" : "Unconfirm"}</td>
         <th>
-            <DetailButton />
+          <DetailButton
+            sequence={props.sequence}
+            provider={props.provider}
+            powerType={props.powerType}
+            status={props.status}
+            location={props.location}
+            CID={props.CID}
+            kWh={props.kWh}
+            date={props.date}
+          />
         </th>
       </tr>
     </>

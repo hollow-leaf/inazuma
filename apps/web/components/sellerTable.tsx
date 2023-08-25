@@ -1,5 +1,52 @@
 import SellerTableItem from "./sellerTableItem";
 function SellerTable(props: any) {
+  const fakeData = [
+    {
+      powerType: "sun",
+      kWh: 200,
+      date: "2020/6/1",
+      status: false,
+      provider: "0x12341234123412",
+      location: "Taipei",
+      CID: "asdfasdfasdf",
+    },
+    {
+      powerType: "water",
+      kWh: 200,
+      date: "2020/10/1",
+      status: true,
+      provider: "0x12341234123412",
+      location: "Taipei",
+      CID: "asdfasdfasdf",
+    },
+    {
+      powerType: "wind",
+      kWh: 200,
+      date: "2020/2/10",
+      status: true,
+      provider: "0x12341234123412",
+      location: "Taipei",
+      CID: "asdfasdfasdf",
+    },
+    {
+      powerType: "wind",
+      kWh: 200,
+      date: "2020/2/10",
+      status: false,
+      provider: "0x12341234123412",
+      location: "Taipei",
+      CID: "asdfasdfasdf",
+    },
+    {
+      powerType: "water",
+      kWh: 200,
+      date: "2020/2/10",
+      status: true,
+      provider: "0x12341234123412",
+      location: "Taipei",
+      CID: "asdfasdfasdf",
+    },
+  ];
   return (
     <div className="overflow-x-auto w-1/2 mx-auto mt-20 text-black">
       <table className="table">
@@ -16,24 +63,20 @@ function SellerTable(props: any) {
         </thead>
         <tbody>
           {/* body */}
-          <SellerTableItem
-            powerType={"sun"}
-            kWh={200}
-            date={"2020/6/1"}
-            status={false}
-          />
-          <SellerTableItem
-            powerType={"water"}
-            kWh={200}
-            date={"2020/10/1"}
-            status={true}
-          />
-          <SellerTableItem
-            powerType={"wind"}
-            kWh={200}
-            date={"2020/2/10"}
-            status={true}
-          />
+          {fakeData.map((item, index) => {
+            return (
+              <SellerTableItem
+                powerType={item.powerType}
+                provider={item.provider}
+                status={item.status}
+                kWh={item.kWh}
+                date={item.date}
+                location={item.location}
+                CID={item.CID}
+                sequence={index+1}
+              />
+            );
+          })}
         </tbody>
       </table>
     </div>
