@@ -1,4 +1,12 @@
-This is a [RainbowKit](https://rainbowkit.com) + [wagmi](https://wagmi.sh) + [Next.js](https://nextjs.org/) project bootstrapped with [`create-rainbowkit`](https://github.com/rainbow-me/rainbowkit/tree/main/packages/create-rainbowkit).
+<div align="center">
+<h1>Inazuma</h1>
+
+<img src="./apps/web/public/favicon.ico" width="50%" height="50%"></img>
+
+[![Frontend deploy](https://github.com/hollow-leaf/inazuma/actions/workflows/ghpage.yml/badge.svg?branch=main)](https://github.com/hollow-leaf/inazuma/actions/workflows/ghpage.yml)
+[![Backend deploy](https://github.com/hollow-leaf/inazuma/actions/workflows/backend.yml/badge.svg)](https://github.com/hollow-leaf/inazuma/actions/workflows/backend.yml)
+
+</div>
 
 ## Getting Started
 
