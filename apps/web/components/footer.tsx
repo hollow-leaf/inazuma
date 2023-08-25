@@ -8,7 +8,7 @@ export default function Footer() {
                     <p>Copyright © 2023 - All right reserved</p>
                 </div>
                 <div className="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
-                    <a href="https://github.com/orgs/Horcross/repositories" target="_blank" rel="noreferrer">
+                    <a href="https://github.com/hollow-leaf/inazuma" target="_blank" rel="noreferrer">
                         <FaGithub className='w-10 h-auto mr-1' />
                     </a>
                 </div>
