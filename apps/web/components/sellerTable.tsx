@@ -66,6 +66,7 @@ function SellerTable(props: any) {
           {fakeData.map((item, index) => {
             return (
               <SellerTableItem
+                key={index}
                 powerType={item.powerType}
                 provider={item.provider}
                 status={item.status}
