@@ -1,4 +1,5 @@
 import { SellerTableItemType } from "../type";
+import { formatAddress } from "../utils/stringify";
 
 function DetailButton(props: SellerTableItemType) {
   const powerNameBook = {
@@ -29,7 +30,7 @@ function DetailButton(props: SellerTableItemType) {
           <div className="px-16 mt-8 flex flex-col space-y-3">
             <div className="flex">
               <p>Provider:</p>
-              <p className="ml-auto">{props.provider}</p>
+              <p className="ml-auto">{formatAddress(props.provider)}</p>
             </div>
             <div className="flex ">
               <p>Power Type:</p>

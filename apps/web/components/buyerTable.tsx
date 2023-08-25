@@ -1,5 +1,7 @@
-import SellerTableItem from "./sellerTableItem";
-function SellerTable(props: any) {
+import BuyerTableItem from "./buyerTableItem";
+import { formatAddress } from "../utils/stringify";
+
+function BuyerTable() {
   const fakeData = [
     {
       powerType: "sun",
@@ -55,9 +57,9 @@ function SellerTable(props: any) {
           <tr className="text-black text-center text-base">
             <th></th>
             <th>Power Type</th>
+            <th>Provider</th>
             <th>kWh</th>
             <th>DATE</th>
-            <th>Status</th>
             <th></th>
           </tr>
         </thead>
@@ -65,16 +67,12 @@ function SellerTable(props: any) {
           {/* body */}
           {fakeData.map((item, index) => {
             return (
-              <SellerTableItem
+              <BuyerTableItem
                 key={index}
                 powerType={item.powerType}
-                provider={item.provider}
-                status={item.status}
+                provider={formatAddress(item.provider)}
                 kWh={item.kWh}
                 date={item.date}
-                location={item.location}
-                CID={item.CID}
-                sequence={index+1}
               />
             );
           })}
@@ -84,4 +82,4 @@ function SellerTable(props: any) {
   );
 }
 
-export default SellerTable;
+export default BuyerTable;

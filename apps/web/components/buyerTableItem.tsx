@@ -1,7 +1,6 @@
-import { SellerTableItemType } from "../type";
-import DetailButton from "./detailButton";
+import { buyerTableItemType } from "../type";
 
-function SellerTableItem(props: SellerTableItemType) {
+function BuyerTableItem(props: buyerTableItemType) {
   const iconPathBook = {
     sun: "solar-cell.png",
     water: "hydro-power.png",
@@ -18,6 +17,7 @@ function SellerTableItem(props: SellerTableItemType) {
     <>
       <tr className="text-center">
         <th>
+          
         </th>
         <td>
           <div className="flex items-center space-x-3">
@@ -40,24 +40,12 @@ function SellerTableItem(props: SellerTableItemType) {
             </div>
           </div>
         </td>
+        <td>{props.provider}</td>
         <td>{props.kWh}</td>
         <td>{props.date}</td>
-        <td>{props.status ? "Confirmed" : "Unconfirm"}</td>
-        <th>
-          <DetailButton
-            sequence={props.sequence}
-            provider={props.provider}
-            powerType={props.powerType}
-            status={props.status}
-            location={props.location}
-            CID={props.CID}
-            kWh={props.kWh}
-            date={props.date}
-          />
-        </th>
       </tr>
     </>
   );
 }
 
-export default SellerTableItem;
+export default BuyerTableItem;
