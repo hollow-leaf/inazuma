@@ -8,7 +8,7 @@ function BalanceOf() {
   const { data: ensName } = useEnsName({ address });
 
   const { data, error, isLoading, isSuccess } = useContractRead({
-    address: "0xAA7294B1aD6a8fA7EE8A07B865B388a51050929e",
+    address: "0xe492DF5f551c8889adc1312793aB815E3f773717",
     abi: greencoin_abi,
     functionName: "balanceOf",
     args: [address],
