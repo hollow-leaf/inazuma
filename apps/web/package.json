@@ -27,6 +27,7 @@
     "@types/react": "^18.2.6",
     "@types/react-leaflet": "^3.0.0",
     "autoprefixer": "^10.4.15",
+    "axios": "^1.5.0",
     "daisyui": "^3.6.1",
     "eslint": "^8.15.0",
     "eslint-config-next": "^13.4.3",
