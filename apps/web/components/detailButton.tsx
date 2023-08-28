@@ -1,12 +1,20 @@
 import { SellerTableItemType } from "../type";
 import { formatAddress } from "../utils/stringify";
+import { verify } from "../service/contractAPI";
 
 function DetailButton(props: SellerTableItemType) {
   const powerNameBook = {
     sun: "Solar",
     water: "Hydro",
     wind: "Wind",
+    Wind: "Wind",
+    Solar: "Solar",
+    Hydro: "Hydro",
   };
+
+  const handleVerify = () => {
+    verify(Number(props.tokenId), props.hyperCID, props.kWh);
+  }
 
   return (
     <>
@@ -16,9 +24,11 @@ function DetailButton(props: SellerTableItemType) {
         onClick={() => {
           if (document) {
             (
-              document.getElementById(`my_modal_${props.sequence}`) as HTMLFormElement
+              document.getElementById(
+                `my_modal_${props.sequence}`
+              ) as HTMLFormElement
             ).showModal();
-            console.log(props.sequence)
+            console.log(props.sequence);
           }
         }}
       >
@@ -62,6 +72,10 @@ function DetailButton(props: SellerTableItemType) {
               <p className="ml-auto">{formatAddress(props.hyperCID)}</p>
             </div>
             <div className="flex ">
+              <p>token ID</p>
+              <p className="ml-auto">{formatAddress(props.tokenId)}</p>
+            </div>
+            <div className="flex ">
               <p>Status</p>
               <p className="ml-auto">
                 {props.status ? "Confirmed" : "Unconfirm"}
@@ -69,7 +83,7 @@ function DetailButton(props: SellerTableItemType) {
             </div>
             {props.status ? null : (
               <div>
-                <button className="btn btn-success w-full mt-6">CONFIRM</button>
+                <button className="btn btn-success w-full mt-6" onClick={handleVerify}>VERIFY</button>
               </div>
             )}
           </div>

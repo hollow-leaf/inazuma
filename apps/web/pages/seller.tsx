@@ -18,7 +18,7 @@ function Page() {
   }, []);
 
   return (
-    <div className="w-1/2 mx-auto mt-10">
+    <div className="w-1/2 mx-auto my-10">
       <ProvideButton />
       <SellerTable assets={assets} />
     </div>

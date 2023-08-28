@@ -8,6 +8,7 @@ export type SellerTableItemType = {
     Co2CID: string,
     hyperCID: string,
     sequence: number,
+    tokenId: string,
 }
 
 export type buyerTableItemType = {
