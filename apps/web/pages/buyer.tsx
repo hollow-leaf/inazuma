@@ -9,8 +9,10 @@ export default function Page(){
                 <div className="divider"></div> 
                 <BuyerTable/>
             </div>
-            <div className="mx-auto mt-14 mb-14">
-                <BuyerSubmit/>
+            <div className="mx-auto mt-14 mb-20 flex flex-col justify-between">
+                <div className="mb-2">
+                    <BuyerSubmit/>
+                </div>
             </div>
         </div>
     )
