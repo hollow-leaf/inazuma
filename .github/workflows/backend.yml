@@ -19,6 +19,15 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
 
+      - name: Create Env File
+        run: |
+          touch ./apps/backend/.env
+          echo ESTUARY_API_KEY=${{secrets.ESTUARY_API_KEY}} >> ./apps/backend/.env
+          echo FG_TOKEN=${{secrets.FG_TOKEN}} >> ./apps/backend/.env
+          echo INFURA_API_KEY=${{secrets.INFURA_API_KEY}} >> ./apps/backend/.env
+          echo PK=${{secrets.PK}} >> ./apps/backend/.env
+          
+
       - name: Build and Deploy Docker
         working-directory: ./apps/backend
         run: |

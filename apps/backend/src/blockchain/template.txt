@@ -1,0 +1,87 @@
+[
+  {
+    "name": {
+      "type": "string",
+      "mandatory": true
+    }
+  },
+  {
+    "description": {
+      "type": "string",
+      "mandatory": true
+    }
+  },
+  {
+    "image": {
+      "type": "string",
+      "mandatory": true
+    }
+  },
+  {
+    "version": {
+      "type": "string",
+      "mandatory": true
+    }
+  },
+  {
+    "hypercert": {
+      "type": "schema",
+      "mandatory": true
+    }
+  },
+  {
+    "external_url": {
+      "type": "string",
+      "mandatory": true
+    }
+  }
+]
+
+bafyreid2j7yimf367ncagt77x44piyagqv4uybo3ezhrzaquanmxc4zr3e
+
+[
+  {
+    "impact_scope": {
+      "type": "schema",
+      "value": "bafyreid2j7yimf367ncagt77x44piyagqv4uybo3ezhrzaquanmxc4zr3e",
+      "mandatory": true
+    }
+  },
+  {
+    "work_scope": {
+      "type": "schema",
+      "value": "bafyreid2j7yimf367ncagt77x44piyagqv4uybo3ezhrzaquanmxc4zr3e",
+      "mandatory": true
+    }
+  },
+  {
+    "impact_timeframe": {
+      "type": "schema",
+      "value": "bafyreid2j7yimf367ncagt77x44piyagqv4uybo3ezhrzaquanmxc4zr3e",
+      "mandatory": true
+    }
+  },
+  {
+    "work_timeframe": {
+      "type": "schema",
+      "value": "bafyreid2j7yimf367ncagt77x44piyagqv4uybo3ezhrzaquanmxc4zr3e",
+      "mandatory": true
+    }
+  },
+  {
+    "rights": {
+      "type": "schema",
+      "value": "bafyreid2j7yimf367ncagt77x44piyagqv4uybo3ezhrzaquanmxc4zr3e",
+      "mandatory": true
+    }
+  },
+  {
+    "contributors": {
+      "type": "schema",
+      "value": "bafyreid2j7yimf367ncagt77x44piyagqv4uybo3ezhrzaquanmxc4zr3e",
+      "mandatory": true
+    }
+  }
+]
+
+bafyreihzbbxlu7xr2wvdfwwdeknju6iwz2byknpgu3udwljg4f6nya2hbi

@@ -3,7 +3,7 @@ services:
     inazuma_backend:
         image: inazuma_backend
         ports:
-            - '3000:8080'
+            - '8080:8080'
         restart: always
         networks:
             - inazuma_network
