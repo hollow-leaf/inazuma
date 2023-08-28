@@ -43,39 +43,62 @@ export async function search_asset(address){
     }).catch(err=>{
         console.log(err)
     })
-    /* res_list.forEach(item=>{
+
+    //delete duplicated
+    let cid_list = []
+    let t = ''
+    res_list.forEach(item=>{
+        if(item.cid !== t){
+            cid_list.push(item)
+            t = item.cid
+        }
+    })
+
+
+    let id_list = []
+    cid_list.forEach(item=>{
+        //console.log(item.asset[5].file[0].cid);
         const obj = new Promise((resolve)=>{
-            resolve(fetch_cert_uri(process.env.ADDRESS,item.asset[5].file[0].cid))
+            resolve(fetch_cert_uri("0xf3419771c2551f88a91Db61cB874347f05640172",item.asset[5].file[0].cid))
         })
         id_list.push(obj);
     })
 
-    let rid_list = []
-    await Promise.all(id_list).then(res=>{
-        res.forEach(item=>{
-            rid_list.push(item)
+    res_list = []
+    let index = 0
+    await Promise.all(id_list).then(list=>{
+        list.forEach(item=>{
+            item.claims.forEach(tokenID=>{
+                res_list.push({cid: cid_list[index].cid , asset: cid_list[index].asset, tokenID:tokenID.tokenID, status: false})
+            })
+
+            index++
         })
-    }) */
+    })
 
     console.log(res_list)
 
-    /* let rres_list = []
+    let status_list = []
     res_list.forEach(item=>{
         const obj = new Promise((resolve)=>{
-            resolve(verify_status(process.env.ADDRESS,item.asset[5].file[0].cid))
+            resolve(verify_status(item.tokenID))
         })
-    }) */
+        status_list.push(obj);
+    })
+    
+    index = 0
+    await Promise.all(status_list).then(list=>{
+        list.forEach(item=>{
+            res_list[index].status = item
+            index++
+        })
+    })
 
-    /* await Promise.all(rres_list).then(list=>{
-        for(let i=0;i<res_list.length;i++){
-            res_list[i].status = 
-        }
-    }) */
-
+    console.log(res_list)
     return res_list
 }
 
-search_asset(process.env.ADDRESS)
+search_asset("0xf3419771c2551f88a91Db61cB874347f05640172")
 
 export async function search_proven(address, cid){
     const authType = "pk"
