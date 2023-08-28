@@ -2,11 +2,12 @@ FROM node:16-alpine3.18
 
 WORKDIR /usr/src/app
 
-COPY package*.json ./
+COPY package.json .
 
 RUN npm install
 
 COPY . .
 
 EXPOSE 8080
-CMD [ "node", "server.js" ]
+
+CMD ["npx","env-cmd", "node", "server.js" ]
