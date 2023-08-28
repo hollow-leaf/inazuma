@@ -37,6 +37,7 @@ contract Inazuma {
     }
 
     function verify(uint tokenID, string memory cid, uint256 amount) public  {
+        require(verified_uri[cid]==false);
         require(msg.sender==contributor_uri[cid]);
         require(Strings.equal(HypercertMinter(_hypermint_address).uri(tokenID),cid));
         require(HypercertMinter(_hypermint_address).unitsOf(tokenID)==amount);
