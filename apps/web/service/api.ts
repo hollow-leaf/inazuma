@@ -4,7 +4,7 @@ export async function addAsset(provider: string, capacity: number, date: number,
     try {
         const res = await axios({
             method: 'post',
-            url: "http://172.24.190.184:8080/add_asset",
+            url: "http://50.112.161.65:8080/add_asset",
             data: {
                 provider: provider,
                 capacity: capacity,
@@ -24,7 +24,7 @@ export async function getAssets(address: string) {
     try {
         const res = await axios({
             method: 'post',
-            url: "http://172.24.190.184:8080/asset",
+            url: "http://50.112.161.65:8080/asset",
             data: {
                 address: address
             }
