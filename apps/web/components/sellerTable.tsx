@@ -1,4 +1,6 @@
+import { AbiErrorSignatureNotFoundError, size } from "viem";
 import SellerTableItem from "./sellerTableItem";
+
 function SellerTable(props: any) {
   const fakeData = [
     {
@@ -14,33 +16,6 @@ function SellerTable(props: any) {
       powerType: "water",
       kWh: 200,
       date: "2020/10/1",
-      status: true,
-      provider: "0x12341234123412",
-      location: "Taipei",
-      CID: "asdfasdfasdf",
-    },
-    {
-      powerType: "wind",
-      kWh: 200,
-      date: "2020/2/10",
-      status: true,
-      provider: "0x12341234123412",
-      location: "Taipei",
-      CID: "asdfasdfasdf",
-    },
-    {
-      powerType: "wind",
-      kWh: 200,
-      date: "2020/2/10",
-      status: false,
-      provider: "0x12341234123412",
-      location: "Taipei",
-      CID: "asdfasdfasdf",
-    },
-    {
-      powerType: "water",
-      kWh: 200,
-      date: "2020/2/10",
       status: true,
       provider: "0x12341234123412",
       location: "Taipei",
@@ -63,17 +38,18 @@ function SellerTable(props: any) {
         </thead>
         <tbody>
           {/* body */}
-          {fakeData.map((item, index) => {
+          {props.assets.map((item: any, index: number) => {
             return (
               <SellerTableItem
                 key={index}
-                powerType={item.powerType}
-                provider={item.provider}
-                status={item.status}
-                kWh={item.kWh}
-                date={item.date}
-                location={item.location}
-                CID={item.CID}
+                powerType={item.asset[3]["Power Type"]}
+                provider={item.asset[1]["Provider"]}
+                status={item.asset}
+                kWh={item.asset[0]["Generation capacity(KW)"]}
+                date={item.asset[2]["Date"].substr(0,7)}
+                location={item.asset[4]["Location"]}
+                Co2CID={item["cid"]}
+                hyperCID={item.asset[5]["file"][0]["cid"]}
                 sequence={index+1}
               />
             );
@@ -85,3 +61,4 @@ function SellerTable(props: any) {
 }
 
 export default SellerTable;
+

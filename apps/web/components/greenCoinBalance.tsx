@@ -16,7 +16,7 @@ function BalanceOf() {
   });
 
   return (
-    <div className="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 p-3 rounded-md shadow-md">
+    <div className="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 px-3 py-[7px] rounded-lg shadow-md">
       <p className="text-white font-semibold">
         GreenCoin: {isSuccess && data?.toString()}
       </p>

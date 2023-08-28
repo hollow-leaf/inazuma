@@ -5,7 +5,8 @@ export type SellerTableItemType = {
     status: boolean,
     provider: string,
     location: string,
-    CID: string,
+    Co2CID: string,
+    hyperCID: string,
     sequence: number,
 }
 

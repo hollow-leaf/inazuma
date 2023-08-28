@@ -17,3 +17,11 @@ a {
 * {
   box-sizing: border-box;
 }
+
+nav {
+  background: rgb(131,228,255);
+  background: linear-gradient(90deg, rgba(131,228,255,1) 0%, rgba(87,183,149,1) 0%, rgba(230,247,112,1) 100%);}
+
+footer {
+  background: rgb(131,228,255);
+  background: linear-gradient(90deg, rgba(131,228,255,1) 0%, rgba(87,183,149,1) 0%, rgba(230,247,112,1) 100%);}
