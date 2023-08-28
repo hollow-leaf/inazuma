@@ -40,13 +40,10 @@ export async function fetch_cert_uri(address, uri) {
     // Define your GraphQL query
     const graphqlQuery = `
       {
-        claimTokens(where:{owner: ${"\""+address+"\""}},claim_: {uri: ${"\""+uri+"\""}}) {
-          claim {
-            uri
-          }
-          id
+        claims(
+          where: {uri:${"\""+uri+"\""}, creator: ${"\""+address+"\""}}
+        ) {
           tokenID
-          units
         }
       }
     `;
