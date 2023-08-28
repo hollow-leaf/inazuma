@@ -9,8 +9,5 @@
   "devDependencies": {
     "turbo": "latest"
   },
-  "packageManager": "pnpm@8.6.10",
-  "dependencies": {
-    "@openzeppelin/contracts": "^4.9.3"
-  }
+  "packageManager": "pnpm@8.6.10"
 }
