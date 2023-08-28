@@ -1,7 +1,7 @@
 import { SellerTableItemType } from "../type";
 import { formatAddress } from "../utils/stringify";
 import { usePrepareContractWrite, useContractWrite } from 'wagmi'
-import ABI from "../service/ABI.json"
+import { verify, token_is_verified } from "../service/contract";
 
 function DetailButton(props: SellerTableItemType) {
   const powerNameBook = {
@@ -11,106 +11,12 @@ function DetailButton(props: SellerTableItemType) {
     Wind: "Wind",
     Solar: "Solar",
     Hydro: "Hydro",
-  };
+  };  
 
-  const inazuma_abi = [
-    {
-      "inputs": [
-        {
-          "internalType": "uint256[]",
-          "name": "tokenID",
-          "type": "uint256[]"
-        },
-        {
-          "internalType": "uint256",
-          "name": "amount",
-          "type": "uint256"
-        }
-      ],
-      "name": "buy",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "string",
-          "name": "uri",
-          "type": "string"
-        },
-        {
-          "internalType": "address",
-          "name": "contributor",
-          "type": "address"
-        }
-      ],
-      "name": "set_contributer",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "stateMutability": "nonpayable",
-      "type": "constructor"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "tokenID",
-          "type": "uint256"
-        },
-        {
-          "internalType": "string",
-          "name": "cid",
-          "type": "string"
-        },
-        {
-          "internalType": "uint256",
-          "name": "amount",
-          "type": "uint256"
-        }
-      ],
-      "name": "verify",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "tokenID",
-          "type": "uint256"
-        }
-      ],
-      "name": "token_is_verified",
-      "outputs": [
-        {
-          "internalType": "bool",
-          "name": "",
-          "type": "bool"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    }
-  ];
-  
-
-  const { config, error } = usePrepareContractWrite({
-    address: '0xB904d09c31Aeb6EC1EF2d9dA2611Abd1A176c584',
-    abi: inazuma_abi,
-    chainId: 5,
-    functionName: 'verify',
-    args:[props.tokenId, props.hyperCID, props.kWh]
-  })
-  const { write } = useContractWrite(config)
 
   const handleVerify = () => {
-    // verify(Number(props.tokenId), props.hyperCID, props.kWh);
+    verify(Number(props.tokenId), props.hyperCID, props.kWh);
+    //token_is_verified(Number(props.tokenId))
   }
 
   return (
@@ -135,11 +41,11 @@ function DetailButton(props: SellerTableItemType) {
           <h3 className="font-bold text-lg">DETAIL</h3>
           <div className="px-16 mt-8 flex flex-col space-y-3">
             <div className="flex">
-              <p>Provider:</p>
+              <p>Provider</p>
               <p className="ml-auto">{formatAddress(props.provider)}</p>
             </div>
             <div className="flex ">
-              <p>Power Type:</p>
+              <p>Power Type</p>
               <p className="ml-auto">
                 {
                   // @ts-ignore
@@ -148,15 +54,15 @@ function DetailButton(props: SellerTableItemType) {
               </p>
             </div>
             <div className="flex ">
-              <p>Generation Capacity:</p>
+              <p>Generation Capacity</p>
               <p className="ml-auto">{props.kWh}</p>
             </div>
             <div className="flex ">
-              <p>Date:</p>
+              <p>Date</p>
               <p className="ml-auto">{props.date}</p>
             </div>
             <div className="flex ">
-              <p>location:</p>
+              <p>location</p>
               <p className="ml-auto">{props.location}</p>
             </div>
             <div className="flex ">
@@ -179,7 +85,7 @@ function DetailButton(props: SellerTableItemType) {
             </div>
             {props.status ? null : (
               <div>
-                <button className="btn btn-success w-full mt-6" onClick={write}>VERIFY</button>
+                <button className="btn btn-success w-full mt-6" onClick={handleVerify}>VERIFY</button>
               </div>
             )}
           </div>

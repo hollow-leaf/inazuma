@@ -25,7 +25,7 @@ function SellerTable(props: any) {
                 provider={item.asset[1]["Provider"]}
                 status={item["status"]}
                 kWh={item.asset[0]["Generation capacity(KW)"]}
-                date={item.asset[2]["Date"].substr(0, 7)}
+                date={item.asset[2]["Date"].substr(0, 6)}
                 location={item.asset[4]["Location"]}
                 Co2CID={item["cid"]}
                 hyperCID={item.asset[5]["file"][0]["cid"]}
