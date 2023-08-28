@@ -8,7 +8,7 @@ const { ethers } = require("ethers");
 
 
 
-const inazuma = "0xB904d09c31Aeb6EC1EF2d9dA2611Abd1A176c584";
+const inazuma = "0x548D91D4d5922cfB63E3f8624B251C901C830717";
 const hypercert = "0x822F17A9A5EeCFd66dBAFf7946a8071C265D1d07";
 const inazuma_abi = [
 	{
