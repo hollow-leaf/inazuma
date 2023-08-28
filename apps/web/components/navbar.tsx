@@ -2,6 +2,7 @@ import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { useRouter } from "next/router";
 import Inazuma from "./inazuma";
 import Image from "next/image";
+import BalanceOf from "./greenCoinBalance";
 
 export default function Navbar() {
   const router = useRouter();
@@ -65,15 +66,6 @@ export default function Navbar() {
           <li>
             <a
               onClick={() => {
-                router.push("/");
-              }}
-            >
-              Home
-            </a>
-          </li>
-          <li>
-            <a
-              onClick={() => {
                 router.push("./seller");
               }}
             >
@@ -82,7 +74,8 @@ export default function Navbar() {
           </li>
         </ul>
       </div>
-      <div className="navbar-end">
+      <div className="navbar-end space-x-4">
+        <BalanceOf/> 
         <ConnectButton />
       </div>
     </div>
