@@ -54,8 +54,12 @@ function DetailButton(props: SellerTableItemType) {
               <p className="ml-auto">{props.location}</p>
             </div>
             <div className="flex ">
-              <p>CID</p>
-              <p className="ml-auto">{props.CID}</p>
+              <p>CO2 CID</p>
+              <p className="ml-auto">{formatAddress(props.Co2CID)}</p>
+            </div>
+            <div className="flex ">
+              <p>hyperCert CID</p>
+              <p className="ml-auto">{formatAddress(props.hyperCID)}</p>
             </div>
             <div className="flex ">
               <p>Status</p>

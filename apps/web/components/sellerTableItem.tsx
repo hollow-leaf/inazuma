@@ -6,13 +6,20 @@ function SellerTableItem(props: SellerTableItemType) {
     sun: "solar-cell.png",
     water: "hydro-power.png",
     wind: "wind-power.png",
+    Solar: "solar-cell.png",
+    Hydro: "hydro-power.png",
+    Wind: "wind-power.png",
   };
 
   const powerNameBook = {
     sun: "Solar",
     water: "Hydro",
     wind: "Wind",
+    Wind: "Wind",
+    Solar: "Solar",
+    Hydro: "Hydro",
   };
+  console.log(props.powerType)
 
   return (
     <>
@@ -50,7 +57,8 @@ function SellerTableItem(props: SellerTableItemType) {
             powerType={props.powerType}
             status={props.status}
             location={props.location}
-            CID={props.CID}
+            hyperCID={props.hyperCID}
+            Co2CID={props.Co2CID}
             kWh={props.kWh}
             date={props.date}
           />
