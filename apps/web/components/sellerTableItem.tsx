@@ -19,7 +19,6 @@ function SellerTableItem(props: SellerTableItemType) {
     Solar: "Solar",
     Hydro: "Hydro",
   };
-  console.log(props.powerType)
 
   return (
     <>

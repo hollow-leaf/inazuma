@@ -20,7 +20,6 @@ export async function addAsset(provider: string, capacity: number, date: number,
 }
 
 export async function getAssets(address: string) {
-    console.log(address);
     try {
         const res = await axios({
             method: 'post',
@@ -29,7 +28,6 @@ export async function getAssets(address: string) {
                 address: address
             }
         })
-        console.log(res.data);
         return res.data;
     }
     catch (err) {

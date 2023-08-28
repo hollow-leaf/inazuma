@@ -75,7 +75,6 @@ const { chains, publicClient, webSocketPublicClient } = configureChains(
     goerli,
     sepolia,
     polygonMumbai,
-    ...(process.env.NEXT_PUBLIC_ENABLE_TESTNETS === 'true' ? [goerli] : []),
   ],
   [publicProvider()]
 );
