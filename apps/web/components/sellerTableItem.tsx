@@ -19,7 +19,6 @@ function SellerTableItem(props: SellerTableItemType) {
     Solar: "Solar",
     Hydro: "Hydro",
   };
-  console.log(props.powerType)
 
   return (
     <>
@@ -59,6 +58,7 @@ function SellerTableItem(props: SellerTableItemType) {
             location={props.location}
             hyperCID={props.hyperCID}
             Co2CID={props.Co2CID}
+            tokenId={props.tokenId}
             kWh={props.kWh}
             date={props.date}
           />

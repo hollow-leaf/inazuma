@@ -1,7 +1,7 @@
 import { FaGithub } from "react-icons/fa";
 export default function Footer() {
   return (
-    <footer className="mt-auto bg-gradient-to-r from-lime-500 to-amber-200 footer items-center p-4  text-black">
+    <footer className="mt-auto footer items-center p-4  text-black">
       <div className="items-center grid-flow-col">
         <svg
           width="36"
