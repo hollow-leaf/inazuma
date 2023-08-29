@@ -48,7 +48,7 @@ app.post('/buy_power', function (req, res) {
     console.log("buy_power_req:")
     console.log(req_data)
     try{
-        buy_power(req_data.amount).then(rres=>{
+        buy_power(Number(req_data.amount)).then(rres=>{
             res.send(rres)
         }).catch(err=>console.log(err))
     }catch(err){
