@@ -6,6 +6,7 @@ on:
       - main # The branch the action should deploy from.
     paths:
       - 'apps/web/**' # The path to your build output folder.
+      - '.github/workflows/ghpage.yml'
 
 permissions:
   contents: read
