@@ -8,9 +8,14 @@ const { ethers } = require("ethers");
 
 
 
-const inazuma = "0x548D91D4d5922cfB63E3f8624B251C901C830717";
+const inazuma = "0x78E3930D2e258e5E88eC4a7f052ce8c7508d5B3B";
 const hypercert = "0x822F17A9A5EeCFd66dBAFf7946a8071C265D1d07";
 const inazuma_abi = [
+	{
+		"inputs": [],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
 	{
 		"inputs": [
 			{
@@ -32,6 +37,25 @@ const inazuma_abi = [
 	{
 		"inputs": [
 			{
+				"internalType": "address",
+				"name": "provider",
+				"type": "address"
+			}
+		],
+		"name": "provider_given_amount",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
 				"internalType": "string",
 				"name": "uri",
 				"type": "string"
@@ -48,9 +72,23 @@ const inazuma_abi = [
 		"type": "function"
 	},
 	{
-		"inputs": [],
-		"stateMutability": "nonpayable",
-		"type": "constructor"
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "tokenID",
+				"type": "uint256"
+			}
+		],
+		"name": "token_is_verified",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
 	},
 	{
 		"inputs": [
@@ -73,25 +111,6 @@ const inazuma_abi = [
 		"name": "verify",
 		"outputs": [],
 		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "tokenID",
-				"type": "uint256"
-			}
-		],
-		"name": "token_is_verified",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"stateMutability": "view",
 		"type": "function"
 	}
 ];
@@ -1563,6 +1582,7 @@ export async function verify_status(tokenID) {
 
 export async function splitfraction(tokenID, amount, total){
   const contract = new ethers.Contract(hypercert, hypercert_abi, signer);
+  console.log(123)
   contract.splitFraction(address, BigInt(tokenID), [amount, total-amount])
 }
 

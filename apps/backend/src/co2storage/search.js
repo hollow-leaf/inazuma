@@ -59,7 +59,7 @@ export async function search_asset(address){
     cid_list.forEach(item=>{
         //console.log(item.asset[5].file[0].cid);
         const obj = new Promise((resolve)=>{
-            resolve(fetch_cert_uri("0xf3419771c2551f88a91Db61cB874347f05640172",item.asset[5].file[0].cid))
+            resolve(fetch_cert_uri(process.env.ADDRESS,item.asset[5].file[0].cid))
         })
         id_list.push(obj);
     })

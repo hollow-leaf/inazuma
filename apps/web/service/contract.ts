@@ -70,6 +70,25 @@ const abi = [
 	{
 		"inputs": [
 			{
+				"internalType": "address",
+				"name": "provider",
+				"type": "address"
+			}
+		],
+		"name": "provider_given_amount",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
 				"internalType": "uint256",
 				"name": "tokenID",
 				"type": "uint256"
@@ -86,10 +105,10 @@ const abi = [
 		"stateMutability": "view",
 		"type": "function"
 	}
-]
+];
 
 const contractAddress: any = {
-  'Goerli': '0x548D91D4d5922cfB63E3f8624B251C901C830717'
+  'Goerli': '0x78E3930D2e258e5E88eC4a7f052ce8c7508d5B3B'
 }
 
 const publicClients: any = {
