@@ -98,7 +98,6 @@ export async function search_asset(address){
     return res_list
 }
 
-search_asset("0xf3419771c2551f88a91Db61cB874347f05640172")
 
 export async function search_proven(address, cid){
     const authType = "pk"
