@@ -15,6 +15,7 @@ function Page() {
     queryFn: () =>
       getAssets(address as string).then((res) => {
         setAssets(res);
+        return res
       }),
       retry: 10,
       cacheTime: 1000*60*5
@@ -28,7 +29,7 @@ function Page() {
       ) : (
         <div className="w-1/2 mx-auto my-10">
           <ProvideButton />
-          <SellerTable assets={assets} />
+          <SellerTable assets={data} />
         </div>
       )}
     </>
