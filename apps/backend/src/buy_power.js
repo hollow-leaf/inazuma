@@ -5,7 +5,7 @@ var address = process.env.ADDRESS
 
 
 export async function buy_power(amount){
-    let token_list = await fetch_cert_address(address)
+    let token_list = await fetch_cert_address("0xf3419771c2551f88a91Db61cB874347f05640172")
     token_list = token_list.claimTokens
     let buy_list =  []
     let index = 5
