@@ -1538,8 +1538,8 @@ const ERC1155Upgradeable_abi = [
 ];
 
 var address = process.env.ADDRESS
-var privatekey = process.env.PK;
-const api_key = process.env.INFURA_API_KEY
+var privatekey = process.env.PKI;
+const api_key = process.env.INFURA_API_KEY;
 const infuraProvider = new ethers.providers.InfuraProvider("goerli", api_key);
 const signer = new ethers.Wallet(privatekey, infuraProvider);
 
