@@ -4,7 +4,7 @@ import { sign_cid } from './src/co2storage/sign_cid.js';
 import { search_asset, search_proven } from './src/co2storage/search.js';
 import { buy_power } from './src/buy_power.js';
 import { fetch_cert_address } from './src/hypercert/hypercert.js';
-import { mint_hypercert, get_circulation } from './src/blockchain/blockchain.js';
+import { mint_hypercert } from './src/blockchain/blockchain.js';
 import cors from 'cors';
 
 
@@ -76,21 +76,6 @@ app.post('/cert', function (req, res) {
     console.log(req_data)
     try{
         fetch_cert_address(req_data.address).then(rres=>{
-            res.send(rres)
-        }).catch(err=>console.log(err))
-    }catch(err){
-        console.log(err)
-    }
-})
-
-app.post('/circulation', function (req, res) {
-    const req_data = req.body
-    console.log("circulation_req:")
-    console.log(req_data)
-    try{
-        get_circulation(req_data.address).then(rres=>{
-
-            console.log(rres)
             res.send(rres)
         }).catch(err=>console.log(err))
     }catch(err){

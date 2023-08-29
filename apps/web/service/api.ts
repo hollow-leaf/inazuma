@@ -52,19 +52,3 @@ export async function getbuyList(amount: number) {
         console.log("error", err);
     }
 }
-
-export async function getCirculation(address: string) {
-    try {
-        const res = await axios({
-            method: 'post',
-            url: host + "/circulation",
-            data: {
-                address: address
-            }
-        })
-        return res.data.toNumber();
-    }
-    catch (err) {
-        console.log("error", err);
-    }
-}

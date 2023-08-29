@@ -1592,8 +1592,4 @@ export async function strict_status(tokenID) {
   return res
 }
 
-export async function get_circulation(address) {
-  const contract = new ethers.Contract(inazuma, inazuma_abi, signer);
-  const res = await contract.provider_given_amount(address);
-  return res;
-}
+//await mint_hypercert("bafybeieaaevjj56vi4h4aislz5p7eolufh4f2tltl2nhakwygdvawvjp3a", 7500, "0x192Fe9ee6b82B6a5c2C1bE9A7eE89EAc91D38240")
