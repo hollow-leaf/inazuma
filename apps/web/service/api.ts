@@ -52,3 +52,19 @@ export async function getbuyList(amount: number) {
         console.log("error", err);
     }
 }
+
+export async function getCert(account: string) {
+    try {
+        const res = await axios({
+            method: 'get',
+            url: host + "/cert",
+            data: {
+                account: account
+            }
+        })
+        return res.data;
+    }
+    catch (err) {
+        console.log("error", err);
+    }
+}

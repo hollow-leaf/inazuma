@@ -1,7 +1,7 @@
 import BuyerTableItem from "./buyerTableItem";
 import { formatAddress } from "../utils/stringify";
 
-function BuyerTable() {
+function BuyerTable(props: any) {
   const fakeData = [
     {
       powerType: "sun",
@@ -65,7 +65,7 @@ function BuyerTable() {
         </thead>
         <tbody>
           {/* body */}
-          {fakeData.map((item, index) => {
+          {props.buyList.map((item:any, index:any) => {
             return (
               <BuyerTableItem
                 key={index}

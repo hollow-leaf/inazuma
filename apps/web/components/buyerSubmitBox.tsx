@@ -2,16 +2,10 @@ import { useState } from 'react'
 import { buy } from '../service/contract';
 import { getbuyList } from '../service/api';
 
-interface BuyerSubmitProps {
-  sharedState: boolean;
-  setSharedState: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
-function BuyerSubmit({sharedState,setSharedState}:BuyerSubmitProps) {
+function BuyerSubmit() {
   const [inputValue, setInputValue] = useState<number>(0);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string>('');
-  const [dat,setData]=useState()
 
   const handleInputChange = (event:any) => {
     setInputValue(event.target.value);
