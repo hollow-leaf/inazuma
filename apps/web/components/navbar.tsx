@@ -32,12 +32,16 @@ export default function Navbar() {
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <a>Buyer</a>
+              <a onClick={() => {
+                router.push("./buyer");
+              }}>Buyer</a>
             </li>
             <li>
             </li>
             <li>
-              <a>Seller</a>
+              <a onClick={() => {
+                router.push("./seller");
+              }}>Seller</a>
             </li>
           </ul>
         </div>
