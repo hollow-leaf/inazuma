@@ -26,7 +26,8 @@ jobs:
           echo FG_TOKEN=${{secrets.FG_TOKEN}} >> ./apps/backend/.env
           echo INFURA_API_KEY=${{secrets.INFURA_API_KEY}} >> ./apps/backend/.env
           echo PK=0x${{secrets.PK}} >> ./apps/backend/.env
-          
+          echo PKI=${{secrets.PK}} >> ./apps/backend/.env
+          echo ADDRESS=${{secrets.ADDRESS}} >> ./apps/backend/.env
 
       - name: Build and Deploy Docker
         working-directory: ./apps/backend
