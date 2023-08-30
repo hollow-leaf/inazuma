@@ -1,6 +1,7 @@
 version: '3.7'
 services:
     inazuma_backend:
+        container_name: inazuma_backend
         image: inazuma_backend
         ports:
             - '8080:8080'
@@ -10,9 +11,24 @@ services:
         build:
             context: ./
             dockerfile: Dockerfile
+    caddy:
+        container_name: inazuma_caddy
+        image: caddy:latest
+        restart: unless-stopped
+        ports:
+            - "80:80"
+            - "443:443"
+        volumes:
+            - ./scripts/caddy_data:/data
+            - ./scripts/caddy_config:/config
+            - ./scripts/caddy_config/Caddyfile:/etc/caddy/Caddyfile
+        networks:
+            - inazuma_network
+            - public_access
 
 networks:
-  inazuma_network:
-    name: inazuma_network
-    driver: bridge
+    public_access:
+    inazuma_network:
+        name: inazuma_network
+        driver: bridge
 
