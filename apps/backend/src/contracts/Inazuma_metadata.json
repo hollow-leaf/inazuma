@@ -31,6 +31,25 @@
 			{
 				"inputs": [
 					{
+						"internalType": "address",
+						"name": "provider",
+						"type": "address"
+					}
+				],
+				"name": "provider_given_amount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
 						"internalType": "string",
 						"name": "uri",
 						"type": "string"
@@ -469,11 +488,11 @@
 			]
 		},
 		"inazuma.sol": {
-			"keccak256": "0xc134258c514aec7b336e5ef688bd938f18bde5bb8d50e84d617464af461a8114",
+			"keccak256": "0x0620ea11ff139bf2b6e686ff66b83fdafcc84557e8923ff9b70eaee7e210382d",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://501ec8a6dbf8c3ec0d8ede1147d1eeee06346834002a02d7afe456f2d369b1df",
-				"dweb:/ipfs/QmPnpy2DHMA4ZcZhxEivC5Ss6qh8JMWq6UFbwg4vf8DBd1"
+				"bzz-raw://be422f276b40d614826b156416a9722b7b5dbac116eacd9d8ee24d43ae1ad868",
+				"dweb:/ipfs/QmdfKYdYRv8D6MKHC9upwdMLUUsMBKpafteGudqQPEAiZf"
 			]
 		}
 	},
