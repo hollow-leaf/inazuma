@@ -52,7 +52,9 @@ function ProvideButton() {
               className="input input-bordered w-full bg-white"
               onChange={(e) => setLocation(e.target.value)}
             />
-            <button className="btn btn-success mb-10" onClick={handleProvide}>Provide</button>
+            <button className="btn btn-success mb-10" onClick={handleProvide}>
+              Provide
+            </button>
           </div>
         </form>
         <form method="dialog" className="modal-backdrop">
