@@ -19,7 +19,7 @@ export async function buy_power(amount){
         //add check whether token id be verify
         if(verify && strict=="AllowAll"){
             if(token_list[index].units<amount){
-                buy_list.push({id:token_list[index].id, tokenID: token_list[index].tokenID, units:String(amount)})
+                buy_list.push({id:token_list[index].id, tokenID: token_list[index].tokenID, units:String(token_list[index].units)})
                 amount = amount - token_list[index].units
             }else{
                 //spiltfraction
