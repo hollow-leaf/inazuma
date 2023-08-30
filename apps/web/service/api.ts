@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const host = "http://50.112.161.65:8080"
+const host = "http://127.0.0.1:8080"
 
 export async function addAsset(provider: string, capacity: number, date: number, type: string, location: string) {
     try {
