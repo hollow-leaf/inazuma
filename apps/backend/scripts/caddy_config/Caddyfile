@@ -1,0 +1,6 @@
+backend.hollowleaf.dev {
+    reverse_proxy inazuma_backend:8080 {
+      flush_interval -1
+    }
+    encode zstd gzip
+}
