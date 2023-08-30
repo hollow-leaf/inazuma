@@ -26,6 +26,7 @@ function MapTable(props: any) {
          {props.result.map((item: any, index: number)=>{
           return (
             <Map_item
+              key={provider_list[index]}
               result = {item.result}
               status= {item.status}
               provider={provider_list[index]}

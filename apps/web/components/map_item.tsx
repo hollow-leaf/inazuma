@@ -2,7 +2,7 @@ import { providerTableItemType } from "../type";
 
 function Map_item(props: providerTableItemType){
     return (
-        <tr key={props.result.toString()}>
+        <tr key={props.provider.toString()}>
             <td>{props.name.toString()}</td>
             <td>{props.provider.toString()}</td>
             <td>{props.result.toString()}</td>
