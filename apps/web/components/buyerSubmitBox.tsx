@@ -39,11 +39,11 @@ function BuyerSubmit() {
     }
   }
   return (
-    <div>
+    <div className='w-1/2'>
       {loading?(<>isLoading<span className="loading loading-spinner loading-md"></span></>):(<>
         <label className="block mb-2 font-semibold">Input amount：</label>
         <input type="number" className="w-full border p-2 rounded mb-4" placeholder="amount" onChange={handleInputChange} />
-        <button className="w-full bg-blue-500 text-white py-2 rounded" onClick={handleSubmit}>Submit</button></>
+        <button className="btn btn-success mb-10" onClick={handleSubmit}>Submit</button></>
       )}
       
     </div>

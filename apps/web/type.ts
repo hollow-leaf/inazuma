@@ -12,8 +12,7 @@ export type SellerTableItemType = {
 }
 
 export type buyerTableItemType = {
-    powerType: string,
-    kWh: number,
-    date: string,
-    provider: string,
+    id:string
+    tokenID: string,
+    units: string,
 }
