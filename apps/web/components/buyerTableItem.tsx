@@ -15,27 +15,18 @@ function BuyerTableItem(props: buyerTableItemType) {
     wind: "Wind",
   };
 
-  const inputString = props.id; // 將您的字串放在這裡
-
-  const lastChar = inputString.charAt(inputString.length - 1); // 取得倒數第一個字
-  const lastNumber = parseInt(lastChar, 10); // 將字串轉換為數字
-  const result = lastNumber - 1; // 減1操作
-
-  const modifiedString = inputString.slice(0, -1) + result.toString(); // 拼接修改後的字串
-
-  console.log(modifiedString); // 輸出修改後的結果
+  const inputString: string = props.id;
+  const lastTwoDigits: string = inputString.slice(-2);
+  const numberValue: number = Number(lastTwoDigits); 
+  const resultNumber: number = numberValue - 1; 
+  const resultString: string = resultNumber.toString();
+  const combinedString: string = inputString.slice(0, -2) + resultString;
 
   return (
     <>
       <tr className="text-center">
-        <th><LiaExternalLinkAltSolid className="text-xl cursor-pointer" title="view on Hypercerts"/></th>
-        
-        <a
-          href={`https://testnet.hypercerts.org/app/view#claimId=${modifiedString}`}
-          target="_blank"
-        >
+        <th><a href={`https://testnet.hypercerts.org/app/view#claimId=${combinedString}`} target="_blank"><LiaExternalLinkAltSolid className="text-xl cursor-pointer" title="view on Hypercerts"/></a></th>
           <td>{props.tokenID}</td>
-        </a>
         <td>{props.units}</td>
       </tr>
     </>
