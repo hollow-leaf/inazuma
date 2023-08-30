@@ -14,7 +14,7 @@ var express = require('express');
 var app = express();
 
 const cors_strict = {
-    "origin": "https://hollowleaf.dev/inazuma, localhost",
+    "origin": "https://hollowleaf.dev/, localhost",
     "methods": "GET,POST",
     "preflightContinue": false,
     "optionsSuccessStatus": 204
