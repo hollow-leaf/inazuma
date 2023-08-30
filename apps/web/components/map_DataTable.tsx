@@ -38,7 +38,7 @@ function MapTable(props: any) {
         <tbody>
           {name_list.map((a, i)=>{
             return (
-              <tr>
+              <tr key={i}>
                 <td>{a}</td>
                 <td>{provider_list[i]}</td>
                 <td>{status_list[i].isSuccess&&status_list[i].data?.toString()}</td>
