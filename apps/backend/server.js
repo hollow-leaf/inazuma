@@ -19,6 +19,16 @@ const cors_strict = {
     "preflightContinue": false,
     "optionsSuccessStatus": 204
   } */
+
+  const corsOptions = {
+    origin: [
+      'https://hollowleaf.dev/inazuma',
+      'http://localhost:3000',
+    ],
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+    allowedHeaders: ['Content-Type', 'Authorization'],
+  };
+  
 app.use(express.json())
 app.use(cors());
  
