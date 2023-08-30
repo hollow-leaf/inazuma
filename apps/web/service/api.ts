@@ -53,13 +53,13 @@ export async function getbuyList(amount: number) {
     }
 }
 
-export async function getCert(account: string) {
+export async function getCert(address: string) {
     try {
         const res = await axios({
-            method: 'get',
+            method: 'post',
             url: host + "/cert",
             data: {
-                account: account
+                address: address
             }
         })
         return res.data;
