@@ -17,3 +17,10 @@ export type buyerTableItemType = {
     date: string,
     provider: string,
 }
+
+export type providerTableItemType = {
+    result: BigInt,
+    status: string
+    provider: string
+    name: string
+}
