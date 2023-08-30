@@ -25,7 +25,7 @@ export default function Page() {
   if (isLoading) return <Loading />;
 
   return (
-    <div className="flex mx-auto mt-8">
+    <div className="flex mx-auto my-10">
       {isLoading ? (
         <Loading />
       ) : (
