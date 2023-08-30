@@ -1,5 +1,6 @@
 import axios from "axios";
 
+
 const host = "https://backend.hollowleaf.dev"
 
 export async function addAsset(provider: string, capacity: number, date: number, type: string, location: string) {
