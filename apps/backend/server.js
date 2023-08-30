@@ -12,15 +12,15 @@ const require = createRequire(import.meta.url);
 
 var express = require('express');
 var app = express();
-
+/* 
 const cors_strict = {
     "origin": "https://hollowleaf.dev/",
     "methods": "GET,POST",
     "preflightContinue": false,
     "optionsSuccessStatus": 204
-  }
+  } */
 app.use(express.json())
-app.use(cors(cors_strict));
+app.use(cors());
  
 app.post('/add_asset', function (req, res) {
     const req_data = req.body
