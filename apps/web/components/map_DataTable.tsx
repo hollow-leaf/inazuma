@@ -11,17 +11,17 @@ function MapTable(props: any) {
   const name_list = ["Taichung","","","",""]
   const status_list: any = [];
 
-  provider_list.forEach(address=>{
-    console.log(address)
+
+  for(let i=0;i<provider_list.length;i++){
     const { data, error, isLoading, isSuccess } = useContractRead({
       address: "0x78E3930D2e258e5E88eC4a7f052ce8c7508d5B3B",
       abi: inazuma_abi,
       functionName: "provider_given_amount",
-      args: [address],
-      enabled: Boolean(address),
+      args: [provider_list[i]],
+      enabled: Boolean(provider_list[i]),
     });
     status_list.push({data:data, error:error, isLoading:isLoading, isSuccess:isSuccess})
-  })
+  }
 
 
   return (

@@ -27,12 +27,12 @@ footer {
   background: linear-gradient(90deg, rgba(131,228,255,1) 0%, rgba(87,183,149,1) 0%, rgba(230,247,112,1) 100%);}
 
 .mx-4{
-  margin-right: 5%;
-  width: 37%
+  margin-right: 3%;
+  width: 50%
 }
 
 .mx-2{
-  margin-left: 5%;
+  margin-left: 3%;
 }
 
 .h-screen {
