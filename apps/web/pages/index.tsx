@@ -13,9 +13,8 @@ const MapWithNoSSR = dynamic(() => import("../components/map"), {
 });
 
 const Home: NextPage = () => {
-  const provider_list = ["0x192Fe9ee6b82B6a5c2C1bE9A7eE89EAc91D38240", "0x3bcAbD66522534657BB86a18d3E550f3166755Fa", "0x9A54A0804FEBf64162D5eBF771C5355622617437", "0xb2D5aaEeB2235fc1B7c31F6acB80826F5c780703", "0xf3419771c2551f88a91Db61cB874347f05640172"];
-  
-  const name_list = ["Taichung","","","",""]
+  const provider_list = ["0x192Fe9ee6b82B6a5c2C1bE9A7eE89EAc91D38240", "0x13D8CaF1EaBcCBBD00d1E6D2dbB4dc4FECF2a022", "0xbB83a6e1AAE3C20930CDC695Ad971d632e578FC1", "0xb2D5aaEeB2235fc1B7c31F6acB80826F5c780703", "0xf3419771c2551f88a91Db61cB874347f05640172"];
+  const name_list = ["Hsinchu Wind station","Taichung Hydro station","Taipei Solar station","Kaohsiung Wind station","Tainan Solar station"]
   const status_list: any = [];
 
   for(let i=0;i<provider_list.length;i++){
