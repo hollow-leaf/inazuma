@@ -16,3 +16,10 @@ export type buyerTableItemType = {
     tokenID: string,
     units: string,
 }
+
+export type providerTableItemType = {
+    result: BigInt,
+    status: string
+    provider: string
+    name: string
+}
