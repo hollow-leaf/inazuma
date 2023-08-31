@@ -70,6 +70,15 @@ export default function Navbar() {
           <li>
             <a
               onClick={() => {
+                router.push("/");
+              }}
+            >
+              Home
+            </a>
+          </li>
+          <li>
+            <a
+              onClick={() => {
                 router.push("./seller");
               }}
             >

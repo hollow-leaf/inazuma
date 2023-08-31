@@ -17,7 +17,13 @@ function BuyerTable(props: any) {
         </thead>
         <tbody>
           {/* body */}
-          {props.claimToken.map((item: any, index: number) => {
+          {props.claimToken === undefined ? (
+            <>
+              {null}
+            </>
+          ): (
+            <>
+              {props.claimToken.map((item: any, index: number) => {
             return (
               <BuyerTableItem
                 key={index}
@@ -27,6 +33,8 @@ function BuyerTable(props: any) {
               />
             );
           })}
+            </>
+          )}
         </tbody>
       </table>
     </div>
