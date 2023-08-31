@@ -5,9 +5,10 @@ import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import Loading from "../components/loading";
 import ProvideButton from "../components/provideButton";
+import Alert from "../components/alert";
 
 function Page() {
-  const { address } = useAccount();
+  const { address, isConnected } = useAccount();
   const [assets, setAssets] = useState<any[]>([]);
 
   const { isLoading, error, data } = useQuery({
@@ -21,6 +22,7 @@ function Page() {
       cacheTime: 1000*60*5
   });
 
+  if (!isConnected) return <Alert />;
   if (isLoading) return <Loading />;
   return (
     <>

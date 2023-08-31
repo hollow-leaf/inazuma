@@ -15,7 +15,7 @@ import Footer from "../components/footer";
 import NextHead from "next/head";
 
 const { chains, publicClient, webSocketPublicClient } = configureChains(
-  [mainnet, goerli, sepolia, polygonMumbai],
+  [goerli],
   [publicProvider()]
 );
 
