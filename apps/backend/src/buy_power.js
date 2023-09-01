@@ -18,16 +18,17 @@ export async function buy_power(amount){
         console.log(verify, strict)
         //add check whether token id be verify
         if(verify && strict=="AllowAll"){
-            if(token_list[index].units<amount){
+            if(token_list[index].units<=amount){
                 buy_list.push({id:token_list[index].id, tokenID: token_list[index].tokenID, units:String(token_list[index].units)})
                 amount = amount - token_list[index].units
             }else{
                 //spiltfraction
-                if(token_list[index].units != amount){
-                   await splitfraction(BigInt(token_list[index].tokenID), amount, token_list[index].units)
-                }
+                const res = await splitfraction(BigInt(token_list[index].tokenID), amount, token_list[index].units)
+                const rres = await res.wait()
+                console.log(rres)
                 buy_list.push({id:token_list[index].id, tokenID: token_list[index].tokenID, units:String(amount)})
-                amount = 0   
+                amount = 0;
+                return buy_list
             }
         }
         

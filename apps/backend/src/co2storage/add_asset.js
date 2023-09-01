@@ -15,7 +15,9 @@ export async function add_asset(kw, provider, date, type, location){
 
   const fgStorage = new FGStorage({authType: authType, ipfsNodeType: ipfsNodeType, ipfsNodeAddr: ipfsNodeAddr, fgApiHost: fgApiUrl})
 
-  const description = "Generation capacity(KW): "+String(kw)+"\n"+"Power Type: "+type+"\n"+"Location: "+location
+  const description = "Generation capacity(KW): "+String(kw)+"\n"+"Power Type: "+type+"\n"+"Location: "+location + "\n"+"Enrollment: "+datenow()
+  //ft
+  console.log(description)
   date = date_process(date)
 
   const hypercert = {
@@ -124,7 +126,7 @@ export async function add_asset(kw, provider, date, type, location){
       assetElements,
       {
           parent: null,
-          name: 'GreenPower Transaction '+provider,
+          name: 'GreenPower txs '+provider,
           description: description,
           template: "bafyreia2npzjftdylrd4omwibw2hkbv3lqi3ywsw3sjtws4vwvvksfvm64",
       },
@@ -164,3 +166,10 @@ function date_process(date){
     return "20"+year+"-"+String(month)+"-01"+" → "+"20"+year+"-"+String(month)+"-31"
   }
 }
+
+function datenow(){
+  const date = new Date()
+  return date.toString()
+}
+
+//ft

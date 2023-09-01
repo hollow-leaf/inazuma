@@ -108,7 +108,7 @@ const abi = [
 ]
 
 const contractAddress: any = {
-  'Goerli': '0x78E3930D2e258e5E88eC4a7f052ce8c7508d5B3B'
+  'Goerli': '0x651Ccd3E07dEda23a573fdD6759b169F3840Fc35'
 }
 
 const publicClients: any = {

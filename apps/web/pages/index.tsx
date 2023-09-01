@@ -19,7 +19,7 @@ const Home: NextPage = () => {
 
   for(let i=0;i<provider_list.length;i++){
     const t = {
-      address: "0x78E3930D2e258e5E88eC4a7f052ce8c7508d5B3B",
+      address: "0x651Ccd3E07dEda23a573fdD6759b169F3840Fc35",
       abi: inazuma_abi,
       functionName: "provider_given_amount",
       args: [provider_list[i]],

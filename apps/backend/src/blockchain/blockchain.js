@@ -1,3 +1,4 @@
+import { error } from 'console';
 import { createRequire } from 'module';
 
 //inazuma: 0x7f49B338452F90a7634267Cc62eC7d804caF5422
@@ -8,7 +9,7 @@ const { ethers } = require("ethers");
 
 
 
-const inazuma = "0x78E3930D2e258e5E88eC4a7f052ce8c7508d5B3B";
+const inazuma = "0x651Ccd3E07dEda23a573fdD6759b169F3840Fc35";
 const hypercert = "0x822F17A9A5EeCFd66dBAFf7946a8071C265D1d07";
 const inazuma_abi = [
 	{
@@ -1565,8 +1566,12 @@ const signer = new ethers.Wallet(privatekey, infuraProvider);
 
 export async function mint_hypercert(cid, amount, contributor){
   const contract = new ethers.Contract(hypercert, hypercert_abi, signer);
-  await contract.mintClaim(address, amount, cid, 0);
-  await set_contributer(cid, contributor);
+  try{
+	await contract.mintClaim(address, amount, cid, 0);
+	await set_contributer(cid, contributor);
+  }catch(error){
+	console.log(error)
+  }
 }
 
 async function set_contributer(cid, contributor){
@@ -1582,8 +1587,8 @@ export async function verify_status(tokenID) {
 
 export async function splitfraction(tokenID, amount, total){
   const contract = new ethers.Contract(hypercert, hypercert_abi, signer);
-  console.log(123)
-  contract.splitFraction(address, BigInt(tokenID), [amount, total-amount])
+  const res = await contract.splitFraction(address, BigInt(tokenID), [amount, total-amount])
+  return res
 }
 
 export async function strict_status(tokenID) {
