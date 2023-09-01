@@ -16,11 +16,7 @@ function BuyerTableItem(props: buyerTableItemType) {
   };
 
   const inputString: string = props.id;
-  const lastTwoDigits: string = inputString.slice(-2);
-  const numberValue: number = Number(lastTwoDigits); 
-  const resultNumber: number = numberValue - 1; 
-  const resultString: string = resultNumber.toString();
-  const combinedString: string = inputString.slice(0, -2) + resultString;
+  const combinedString: string = "0x822f17a9a5eecfd66dbaff7946a8071c265d1d07-" + inputString;
 
   return (
     <>

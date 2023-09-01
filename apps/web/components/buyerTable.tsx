@@ -21,7 +21,7 @@ function BuyerTable(props: any) {
             return (
               <BuyerTableItem
                 key={index}
-                id={item["id"]}
+                id={item["claim"]["tokenID"]}
                 tokenID={item["tokenID"]}
                 units={item["units"]}
               />

@@ -13,6 +13,7 @@ export async function fetch_cert_address(address) {
         claimTokens(where:{owner: ${"\""+address+"\""}}) {
           claim {
             uri
+            tokenID
           }
           id
           tokenID
@@ -32,6 +33,13 @@ export async function fetch_cert_address(address) {
     console.error('Error fetching data:', error);
   }
 }
+
+fetch_cert_address("0x9A54A0804FEBf64162D5eBF771C5355622617437").then(list=>{
+  list.claimTokens.forEach(element => {
+    console.log(element)
+    console.log(element.claim)
+  });
+})
 
 export async function fetch_cert_uri(address, uri) {
   try {
