@@ -27,7 +27,6 @@ export async function fetch_cert_address(address) {
 
     // The response data will contain the results of your query
     const data = response.data.data;
-    console.log(data)
     return data
   } catch (error) {
     console.error('Error fetching data:', error);

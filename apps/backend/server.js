@@ -43,10 +43,10 @@ app.post('/add_asset', function (req, res) {
             console.log(asset_res.result.asset[5].file)
             //cid
             sign_cid(asset_res.result.assetBlock.cid).then(sign_res=>{
-                console.log("Sign respond:")
-                console.log(sign_res)
+                console.log("Sign OK!")
                 //smartcontract call
                 mint_hypercert(asset_res.result.asset[5].file[0].cid, req_data.capacity, req_data.provider).then(()=>{
+                    console.log("Mint OK!")
                     res.json(sign_res)
                 })
             }).catch(err=>{ 
@@ -60,7 +60,7 @@ app.post('/add_asset', function (req, res) {
     }
 })
 
-app.post('/buy_power', function (req, res) {
+app.post('/buy_power', async function (req, res) {
     const req_data = req.body
     console.log("buy_power_req:")
     console.log(req_data)

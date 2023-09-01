@@ -19,7 +19,7 @@ export async function search_asset(address){
     1reference, 1contentCid, 1creator, 1createdFrom, 1createdTo, 1version, offset, limit, sortBy, sortDir)
     */
     
-    const keyword = 'GreenPower Transaction '+ address
+    const keyword = 'GreenPower txs '+ address
     let searchResponse = await fgStorage.searchAssets('GreenPower', null, null, keyword, null, null, 0, 50, null, null)
     if(searchResponse.error != null) {
         console.error(searchResponse.error)
