@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { buy } from "../service/contract";
 import { getbuyList } from "../service/api";
+import Loading from "./loading";
 
 function BuyerSubmit() {
   const [inputValue, setInputValue] = useState<number>(0);
@@ -23,16 +24,18 @@ function BuyerSubmit() {
       setLoading(true);
       setError("");
       const list = await getbuyList(amount);
+      setLoading(false);
       list.forEach((item: any) => {
         buylist.push(item.tokenID);
-        console.log(buylist);
       });
       console.log(list);
-      console.log(buy(buylist, amount));
+      buy(buylist, amount);
+      (document.getElementById(`buyModal`) as HTMLFormElement).close();
     } catch (err) {
       setError("Error fetching data");
       setLoading(false);
       console.log(err);
+      (document.getElementById(`buyModal`) as HTMLFormElement).close();
     }
   }
 
@@ -61,7 +64,7 @@ function BuyerSubmit() {
               // @ts-ignore
               onChange={handleInputChange}
             />
-            <button className="btn btn-success mb-10" onClick={handleSubmit}>
+            <button type="button" className="btn btn-success mb-10" onClick={handleSubmit}>
               Submit
             </button>
           </div>
@@ -69,6 +72,7 @@ function BuyerSubmit() {
         <form method="dialog" className="modal-backdrop">
           <button>close</button>
         </form>
+        {loading&&<Loading />}
       </dialog>
     </>
   );

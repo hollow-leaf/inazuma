@@ -1,6 +1,7 @@
 import { addAsset } from "../service/api";
 import { useState } from "react";
 import { useAccount } from "wagmi";
+import Loading from "./loading";
 
 function ProvideButton() {
   const { address } = useAccount();
@@ -12,12 +13,24 @@ function ProvideButton() {
 
   function handleProvide() {
     // @ts-ignore
-    addAsset(address as string, capacity, 2302, powerType, location);
+    setLoading(true)
+    addAsset(address as string, capacity, 2302, powerType, location).then(res=>{
+      setLoading(false);
+      (document.getElementById(`my_modal`) as HTMLFormElement).close();
+      window.alert("Successful!")
+    }).catch(err=>{
+      console.log(err);
+      (document.getElementById(`my_modal`) as HTMLFormElement).close();
+      window.alert("failed!")
+    });
   }
 
   const [powerType, setPowerType] = useState("");
-  const [capacity, setCapacity] = useState();
+  const [capacity, setCapacity] = useState(0);
   const [location, setLocation] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  
 
   return (
     <>
@@ -52,7 +65,7 @@ function ProvideButton() {
               className="input input-bordered w-full bg-white"
               onChange={(e) => setLocation(e.target.value)}
             />
-            <button className="btn btn-success mb-10" onClick={handleProvide}>
+            <button type="button" className="btn btn-success mb-10" onClick={handleProvide}>
               Provide
             </button>
           </div>
@@ -60,6 +73,7 @@ function ProvideButton() {
         <form method="dialog" className="modal-backdrop">
           <button>close</button>
         </form>
+        {loading&&<Loading />}
       </dialog>
     </>
   );
