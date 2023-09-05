@@ -143,18 +143,19 @@ cd blcokchain
 
 There is blockchain.js here and edit inazuma inside to your inazuma contract address.
 
-```bash
-cd ..
-cd blcokchain
+
+```
+const inazuma ="0x65....c35";
+const hypercert="0x82....d07";
 ```
 
 ### contract.ts and api.ts
 
 Go apps/web/service from root of project you can find contract.ts and api.ts. First, in contract,ts edit contract address to your inazuma contract address in line 111. Next, open api.ts and set host as “http://127.0.0.1:8080”.
-
 ```
-const inazuma ="0x65....c35";
-const hypercert="0x82....d07";
+const contractAddress: any = {
+	'Goerli': '0x65....c35'
+}
 ```
 ### **********greenCoinBalance.tsx**********
 
