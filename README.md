@@ -12,7 +12,7 @@
 
 - WebPage: [hollow-leaf.github.io/inazuma](https://hollow-leaf.github.io/inazuma)
 - Video: [https://youtu.be/R0JVhL2DiUE?si=Pclr36mrNvYSxCHE](https://youtu.be/R0JVhL2DiUE?si=Pclr36mrNvYSxCHE)
-- Inazuma Contract: [0x78E3930D2e258e5E88eC4a7f052ce8c7508d5B3B](https://goerli.etherscan.io/address/0x78E3930D2e258e5E88eC4a7f052ce8c7508d5B3B)
+- Inazuma Contract: [0x651Ccd3E07dEda23a573fdD6759b169F3840Fc35](https://goerli.etherscan.io/address/0x651Ccd3E07dEda23a573fdD6759b169F3840Fc35)
 
 ### Abstract
 
