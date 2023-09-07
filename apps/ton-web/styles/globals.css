@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  background-color: white;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+nav {
+  background: rgb(131,228,255);
+  background: linear-gradient(90deg, rgba(131,228,255,1) 0%, #57b795 0%, rgba(230,247,112,1) 100%);}
+
+footer {
+  background: rgb(131,228,255);
+  background: linear-gradient(90deg, rgba(131,228,255,1) 0%, rgba(87,183,149,1) 0%, rgba(230,247,112,1) 100%);}
+
+.mx-4{
+  margin-right: 3%;
+  width: 50%
+}
+
+.mx-2{
+  margin-left: 3%;
+}
+
+.h-screen {
+  height: 80vh;
+}
