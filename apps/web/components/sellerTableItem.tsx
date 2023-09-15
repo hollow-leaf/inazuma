@@ -20,6 +20,8 @@ function SellerTableItem(props: SellerTableItemType) {
     Hydro: "Hydro",
   };
 
+  
+
   return (
     <>
       <tr className="text-center">
