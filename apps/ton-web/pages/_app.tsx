@@ -6,6 +6,7 @@ import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 import NextHead from "next/head";
 
+
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -17,17 +18,17 @@ const queryClient = new QueryClient({
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <QueryClientProvider client={queryClient}>
-          <NextHead>
-            <title>INAZUMA</title>
-            <link rel="icon" href="favicon.ico" />
-          </NextHead>
-          <div className="min-h-screen flex flex-col relative" >
-            <Navbar />
-            <Component {...pageProps} />
-            <Footer />
-          </div>
-    </QueryClientProvider>
+      <QueryClientProvider client={queryClient}>
+            <NextHead>
+              <title>INAZUMA</title>
+              <link rel="icon" href="favicon.ico" />
+            </NextHead>
+            <div className="min-h-screen flex flex-col relative" >
+              <Navbar />
+              <Component {...pageProps} />
+              <Footer />
+            </div>
+      </QueryClientProvider>
   );
 }
 
