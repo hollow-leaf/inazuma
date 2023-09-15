@@ -35,4 +35,5 @@ export async function buy_power(amount){
         index = index + 1
     }
     return buy_list
+    
 }
