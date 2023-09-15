@@ -19,8 +19,7 @@ a {
 }
 
 nav {
-  background: linear-gradient(90deg, rgb(255, 255, 255) 0%, #65be84 0%, rgb(112, 200, 247) 100%);
-  opacity: 80%;
+  background: linear-gradient(90deg, rgb(255, 255, 255, 0.8) 0%, #65be84 0%, rgb(112, 200, 247, 0.8) 100%);
 }
 
 footer {
@@ -74,4 +73,16 @@ footer {
 .sell_modal{
   opacity: 1;
   background-color: rgb(255, 255, 255, 1);
+}
+
+.connectbutton{
+  background-color: rgb(255, 255, 255, 0.85);
+  font-weight: bold;
+  overflow:hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 350px;
+  border: 5px;
+  border-radius: 1rem;
+  padding: 2%;
 }

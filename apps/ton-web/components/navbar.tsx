@@ -1,12 +1,42 @@
 import { useRouter } from "next/router";
 import Inazuma from "./inazuma";
-import { TonConnectUIProvider } from '@tonconnect/ui-react';
 import ConnectButton from "./connectButton";
+import TonConnect, { toUserFriendlyAddress } from '@tonconnect/sdk';
+import { useQuery } from "@tanstack/react-query";
+import { useState, useEffect } from "react";
+import {
+  isWalletInfoCurrentlyEmbedded,
+  isWalletInfoInjectable,
+  isWalletInfoCurrentlyInjected,
+  isWalletInfoRemote,
+  WalletInfo
+} from '@tonconnect/sdk';
+import { Wallet } from "@tonconnect/ui-react";
 
 export default function Navbar() {
-  
+  const [connect, setConnect] = useState(false)
+  const [address, setAddress] = useState("")
+
+  async function connectwallet() {
+    if(typeof window !== 'undefined' && window.localStorage){
+      let connector = new TonConnect({manifestUrl:"https://gold-xenial-catfish-998.mypinata.cloud/ipfs/QmNQiXeY1si1uVA6KQfUq8nEGAHmmTrk5TjXDY8dCnRhtD"});
+      connector.restoreConnection();
+      const walletConnectionSource = {
+        jsBridgeKey: 'tonkeeper'
+      }
+      await connector.connect(walletConnectionSource)
+      connector.onStatusChange((wallet)=>{
+        if(wallet!=null){
+          const rawAddress = wallet["account"]['address']
+          const testnetOnlyBouncableUserFriendlyAddress = toUserFriendlyAddress(rawAddress, true)
+          setAddress(testnetOnlyBouncableUserFriendlyAddress)
+          setConnect(true)
+        }
+      })
+    }
+  }
+
   const router = useRouter();
-  // shadow-[5px_5px_rgba(0,_98,_90,_0.4),_10px_10px_rgba(0,_98,_90,_0.3),_15px_15px_rgba(0,_98,_90,_0.2),_20px_20px_rgba(0,_98,_90,_0.1),_25px_25px_rgba(0,_98,_90,_0.05)]
   return (
     <nav className="navbar h-[100px] text-black shadow-[rgba(13,_38,_76,_0.19)_0px_9px_20px]">
       <div className="navbar-start">
@@ -88,7 +118,14 @@ export default function Navbar() {
         </ul>
       </div>
       <div className="navbar-end space-x-4">
+        <div className="connectbutton">
+          {!connect&&<button onClick={connectwallet}>Connect</button>}
+          {connect&&<img src="./11419.png" style={{width: "25px"}}/>}
+          {connect&&<a>{address}</a>}
+        </div>
       </div>
     </nav>
   );
 }
+
+
