@@ -19,12 +19,14 @@ a {
 }
 
 nav {
-  background: rgb(131,228,255);
-  background: linear-gradient(90deg, rgba(131,228,255,1) 0%, #5769b7 0%, rgb(112, 200, 247) 100%);}
+  background: linear-gradient(90deg, rgb(255, 255, 255) 0%, #65be84 0%, rgb(112, 200, 247) 100%);
+  opacity: 80%;
+}
 
 footer {
-  background: rgb(131,228,255);
-  background: linear-gradient(90deg, rgba(131,228,255,1) 0%, #5769b7 0%, rgb(112, 200, 247) 100%);}
+  background: linear-gradient(90deg, rgb(255, 255, 255) 0%, #65be84 0%, rgb(112, 200, 247) 100%);
+  opacity: 80%;
+}
 
 .mx-4{
   margin-right: 3%;
@@ -37,4 +39,39 @@ footer {
 
 .h-screen {
   height: 80vh;
+}
+
+#__next {
+  background-image: url("../photo/82877075.jpg");
+  
+}
+
+.bg-white {
+  border-radius: 2rem;
+  background: linear-gradient(90deg, rgb(255, 255, 255, 0.8) 0%, rgb(101,190,132, 0.8) 0%, rgb(112, 200, 247, 0.8) 100%);
+}
+
+.group {
+  border: 3px;
+  background-color: rgb(255, 255, 255, 0.8);
+  border-radius: 1rem;
+  padding: 3%;
+}
+
+.saletext {
+  padding: 3%;
+}
+
+.table {
+  
+  background-color: rgb(255, 255, 255, 0.8);
+}
+
+.w-1\/2{
+  width: 85%;
+}
+
+.sell_modal{
+  opacity: 1;
+  background-color: rgb(255, 255, 255, 1);
 }
