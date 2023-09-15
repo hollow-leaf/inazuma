@@ -23,3 +23,14 @@ export type providerTableItemType = {
     provider: string
     name: string
 }
+
+export type saleType = {
+    cid: string
+    Generation_capacity: number
+    Provider: string
+    Date: string
+    powerType: string
+    Location: string
+    price: number
+    index: number
+}

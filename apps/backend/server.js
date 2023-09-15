@@ -1,10 +1,11 @@
 import { createRequire } from 'module';
 import { add_asset } from './src/co2storage/add_asset.js';
 import { sign_cid } from './src/co2storage/sign_cid.js';
-import { search_asset, search_proven } from './src/co2storage/search.js';
+import { search_asset, search_proven, search_assets } from './src/co2storage/search.js';
 import { buy_power } from './src/buy_power.js';
 import { fetch_cert_address } from './src/hypercert/hypercert.js';
 import { mint_hypercert } from './src/blockchain/blockchain.js';
+import { mint_nft } from './src/TON/add_ton_sale.js';
 import cors from 'cors';
 
 
@@ -106,6 +107,43 @@ app.get('/approve', function (req, res) {
         search_proven(process.env.ADDRESS, req_data.cid).then(rres=>{
             res.send(rres)
         }).catch(err=>console.log(err))
+    }catch(err){
+        console.log(err)
+    }
+})
+
+app.post('/add_ton_asset', async function (req, res) {
+    const req_data = req.body
+    console.log("add_asset_req:")
+    console.log(req_data)
+
+
+    try{
+        let nft_address  = await mint_nft(req_data.provider)
+        console.log(nft_address)
+        add_asset(req_data.capacity, nft_address, req_data.date, req_data.type, req_data.location).then(asset_res=>{
+            console.log("Asset respond:")
+            console.log(asset_res.result.asset[5].file)
+            res.send("ok!")
+        }).catch(err=>{
+            console.log(err)
+            res.send("bad")
+        })
+    }catch(err){
+        console.log(err)
+        res.send("bad")
+    }
+})
+
+app.post('/assets', function (req, res) {
+    const req_data = req.body
+    console.log("asset_req:")
+    console.log(req_data)
+    try{
+        search_assets(req_data.address).then(rres=>{
+            console.log(rres)
+            res.send(rres)
+        })
     }catch(err){
         console.log(err)
     }

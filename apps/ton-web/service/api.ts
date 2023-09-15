@@ -7,7 +7,7 @@ export async function addAsset(provider: string, capacity: number, date: number,
     try {
         const res = await axios({
             method: 'post',
-            url: host + "/add_asset",
+            url: host + "/add_ton_asset",
             data: {
                 provider: provider,
                 capacity: capacity,
@@ -59,6 +59,22 @@ export async function getCert(address: string) {
         const res = await axios({
             method: 'post',
             url: host + "/cert",
+            data: {
+                address: address
+            }
+        })
+        return res.data;
+    }
+    catch (err) {
+        console.log("error", err);
+    }
+}
+
+export async function get_ton_Asset(address: string[]) {
+    try {
+        const res = await axios({
+            method: 'post',
+            url: host + "/assets",
             data: {
                 address: address
             }

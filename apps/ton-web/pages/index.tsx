@@ -15,7 +15,7 @@ const Home: NextPage = () => {
   return (
     <>
       
-        <div>
+        <div >
           <div className="flex justify-center items-center h-screen">
             <div className="w-1/3 mx-4">
               

@@ -6,33 +6,37 @@ import { useState, useEffect } from "react";
 import Loading from "../components/loading";
 import { useQuery } from "@tanstack/react-query";
 import Alert from "../components/alert";
+import { getsale } from "../service/market.js";
+import ProvideButton from "../components/provideButton";
 
 export default function Page() {
-  const [claimToken, setClaimToken] = useState<any[]>([]);
-  const { address, isConnected } = useAccount();
+  const [sales, setSales] = useState<any[]>([]);
 
-  useEffect(() => {
-    getCert(address as unknown as string).then((res) => {
-      setClaimToken(res);
-    });
-  }, [isConnected]);
-
-  if (!isConnected) return <Alert />;
+  const { isLoading, error, data } = useQuery({
+    queryKey: ["getsale"],
+    queryFn: () =>
+      getsale("0:cabe5726eb37111205f1492e45a6e88bd7fa649329ca3549e5bd1d70b4a98911").then((res:any) => {
+        setSales(res);
+        return res
+      }),
+      retry: 10,
+      cacheTime: 1000*60*5
+  });
+  if (isLoading) return <Loading />;
   return (
-    <div className="flex mx-auto my-10">
-      <div>
-        <div className="mb-5">
-          <BuyerSubmit />
+    <>
+      {isLoading?(
+        <Loading />
+      ):(
+        <div className="flex mx-auto my-10">
+          <div>
+            <div className="mb-5">
+              <ProvideButton />
+              <BuyerTable sales={data}/>
+            </div>
+          </div>
         </div>
-        <p className="text-3xl text-black">Your NFT</p>
-        <div className="divider"></div>
-        <BuyerTable
-          claimToken={
-            // @ts-ignore
-            claimToken.claimTokens
-          }
-        />
-      </div>
-    </div>
+      )}
+    </>
   );
 }

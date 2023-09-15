@@ -8,7 +8,7 @@ const goerliProvider = [
   http('https://api.zan.top/node/v1/eth/goerli/public')
 ]
 
-export const goerliClient: any = createPublicClient({
+export const goerliClient = createPublicClient({
   chain: goerli,
   transport: fallback(goerliProvider)
 })
