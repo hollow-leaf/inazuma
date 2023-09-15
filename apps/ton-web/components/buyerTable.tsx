@@ -33,7 +33,7 @@ function BuyerTable(props: any) {
             <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
               {props.sales.map((sale:any, index:number) => {
                 return (
-                  <BuyerTableItem index={sale["index"]} price={sale["sale"]["price"]["value"]/(10**9)} powerType={data[index]["asset"][3]["Power Type"]} cid={data[index]["cid"]} Generation_capacity={data[index]["asset"][0]["Generation capacity(KW)"]} Provider={sale_address[index]} Date={data[index]["asset"][2]["Date"]} Location={data[index]["asset"][4]["Location"]}/>
+                  <BuyerTableItem key={sale["index"]} index={sale["index"]} price={sale["sale"]["price"]["value"]/(10**9)} powerType={data[index]["asset"][3]["Power Type"]} cid={data[index]["cid"]} Generation_capacity={data[index]["asset"][0]["Generation capacity(KW)"]} Provider={sale_address[index]} Date={data[index]["asset"][2]["Date"]} Location={data[index]["asset"][4]["Location"]}/>
                 )
                 })
               }
