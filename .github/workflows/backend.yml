@@ -28,6 +28,8 @@ jobs:
           echo PK=0x${{secrets.PK}} >> ./apps/backend/.env
           echo PKI=${{secrets.PK}} >> ./apps/backend/.env
           echo ADDRESS=${{secrets.ADDRESS}} >> ./apps/backend/.env
+          echo MNEMONIC=${{secrets.MNEMONIC}} >> ./apps/backend/.env
+          echo TONCENTER_API_KEY=${{secrets.TONCENTER_API_KEY}} >> ./apps/backend/.env
 
       - name: Build and Deploy Docker
         working-directory: ./apps/backend
