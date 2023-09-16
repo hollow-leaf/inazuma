@@ -1,7 +1,9 @@
 import { SellerTableItemType } from "../type";
 import { formatAddress } from "../utils/stringify";
 import { usePrepareContractWrite, useContractWrite } from 'wagmi'
-import { verify, token_is_verified } from "../service/contract";
+import {buy_nft} from "../service/market.js"
+import { useState } from "react";
+
 
 function DetailButton(props: SellerTableItemType) {
   const powerNameBook = {
@@ -11,24 +13,23 @@ function DetailButton(props: SellerTableItemType) {
     Wind: "Wind",
     Solar: "Solar",
     Hydro: "Hydro",
-  };  
+  };
+  
 
-
-  const handleVerify = () => {
-    verify(Number(props.tokenId), props.hyperCID, props.kWh);
-    //token_is_verified(Number(props.tokenId))
+  const handleBuy = () => {
+    buy_nft(props.sale, props.Price+1.05)
   }
 
   return (
-    <>
+    <div>
       <button
-        className="btn btn-xs btn-info"
+        className="saledetail font-medium text-gray-900" style={{textAlign:"center"}}
         // @ts-ignore
         onClick={() => {
           if (document) {
             (
               document.getElementById(
-                `my_modal_${props.sequence}`
+                `my_modal_${props.tokenId}`
               ) as HTMLFormElement
             ).showModal();
           }
@@ -36,9 +37,9 @@ function DetailButton(props: SellerTableItemType) {
       >
         Detail
       </button>
-      <dialog id={`my_modal_${props.sequence}`} className="modal">
+      <dialog id={`my_modal_${props.tokenId}`} className="modal">
         <form method="dialog" className="modal-box bg-white py-10">
-          <h3 className="font-bold text-lg">DETAIL</h3>
+          <h3 className="font-bold text-lg" style={{textAlign:"center"}}>DETAIL</h3>
           <div className="px-16 mt-8 flex flex-col space-y-3">
             <div className="flex">
               <p>Provider</p>
@@ -70,31 +71,30 @@ function DetailButton(props: SellerTableItemType) {
               <p className="ml-auto">{formatAddress(props.Co2CID)}</p>
             </div>
             <div className="flex ">
-              <p>hyperCert CID</p>
-              <p className="ml-auto">{formatAddress(props.hyperCID)}</p>
-            </div>
-            <div className="flex ">
-              <p>token ID</p>
+              <p>NFT Address</p>
               <p className="ml-auto">{formatAddress(props.tokenId)}</p>
             </div>
             <div className="flex ">
-              <p>Status</p>
-              <p className="ml-auto">
-                {props.status ? "Confirmed" : "Unconfirm"}
-              </p>
+              <p>Price</p>
+              <p className="ml-auto">{props.Price.toString()}</p>
             </div>
-            {props.status ? null : (
-              <div>
-                <button className="btn btn-success w-full mt-6" onClick={handleVerify}>VERIFY</button>
-              </div>
-            )}
+            <div className="flex ">
+              <p>Fee</p>
+              <p className="ml-auto">1</p>
+            </div>
+            <div>
+              <button type="button" className="btn btn-success w-full mt-6" onClick={handleBuy}>BUY</button>
+            </div>
+            <div>
+              <img src="" className={"buy_qrcode_"+props.sale}/>
+            </div>
           </div>
         </form>
         <form method="dialog" className="modal-backdrop">
           <button>close</button>
         </form>
       </dialog>
-    </>
+    </div>
   );
 }
 

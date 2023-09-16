@@ -1,4 +1,3 @@
-import SellerTableItem from "./sellerTableItem";
 import { BaseError } from "viem";
 import { erc20ABI, useContractRead, useContractReads } from "wagmi";
 import { useAccount, useEnsName } from "wagmi";

@@ -78,11 +78,41 @@ footer {
 .connectbutton{
   background-color: rgb(255, 255, 255, 0.85);
   font-weight: bold;
+  text-align: center;
   overflow:hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  width: 350px;
+  width: 250px;
   border: 5px;
   border-radius: 1rem;
   padding: 2%;
+}
+
+.connected{
+  overflow:hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.saledetail{
+  width: 100%;
+  border-radius: 1rem;
+  background: linear-gradient(90deg, rgb(255, 255, 255, 0.8) 0%, rgb(101,190,132, 0.8) 0%, rgb(112, 200, 247, 0.8) 100%);
+}
+
+.saledetail:hover{
+  opacity: 80%;
+  -webkit-box-shadow: 1px 1px rgb(112, 200, 247, 0.8);
+	-moz-box-shadow: 1px 1px rgb(112, 200, 247, 0.8);
+	box-shadow: 1px 1px rgb(112, 200, 247, 0.8);
+  cursor: pointer;
+}
+
+.modal-box{
+  background:  rgb(236, 244, 248);
+  color: black;
+}
+
+.modal{
+  background-color: rgba(48, 43, 36, 0.25);
 }

@@ -9,6 +9,8 @@ export type SellerTableItemType = {
     hyperCID: string,
     sequence: number,
     tokenId: string,
+    Price: number,
+    sale: string
 }
 
 export type buyerTableItemType = {
@@ -33,4 +35,6 @@ export type saleType = {
     Location: string
     price: number
     index: number
+    address: string
+    sale_address: string
 }
