@@ -1,4 +1,3 @@
-import SellerTableItem from "./sellerTableItem";
 
 function SellerTable(props: any) {
   return (

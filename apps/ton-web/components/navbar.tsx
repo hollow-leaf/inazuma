@@ -11,15 +11,16 @@ import {
   isWalletInfoRemote,
   WalletInfo
 } from '@tonconnect/sdk';
-import { Wallet } from "@tonconnect/ui-react";
 
 export default function Navbar() {
   const [connect, setConnect] = useState(false)
   const [address, setAddress] = useState("")
+  let connector: TonConnect
 
   async function connectwallet() {
-    if(typeof window !== 'undefined' && window.localStorage){
-      let connector = new TonConnect({manifestUrl:"https://gold-xenial-catfish-998.mypinata.cloud/ipfs/QmNQiXeY1si1uVA6KQfUq8nEGAHmmTrk5TjXDY8dCnRhtD"});
+    try{
+      if(typeof window !== 'undefined' && window.localStorage){
+      connector = new TonConnect({manifestUrl:"https://gold-xenial-catfish-998.mypinata.cloud/ipfs/QmNQiXeY1si1uVA6KQfUq8nEGAHmmTrk5TjXDY8dCnRhtD"});
       connector.restoreConnection();
       const walletConnectionSource = {
         jsBridgeKey: 'tonkeeper'
@@ -34,6 +35,16 @@ export default function Navbar() {
         }
       })
     }
+    }catch(err){
+      alert("You have to insatll browser plugin wallet")
+    }
+    
+  }
+
+  async function disconnect() {
+    if (connector.connected) {
+      await connector.disconnect();
+  }
   }
 
   const router = useRouter();
@@ -119,9 +130,12 @@ export default function Navbar() {
       </div>
       <div className="navbar-end space-x-4">
         <div className="connectbutton">
-          {!connect&&<button onClick={connectwallet}>Connect</button>}
-          {connect&&<img src="./11419.png" style={{width: "25px"}}/>}
-          {connect&&<a>{address}</a>}
+          {!connect&&<button onClick={connectwallet}>Connect Wallet</button>}
+          {connect&&
+            <div className="connected">
+              <img src="./11419.png" style={{width: "25px"}}/>
+              <a>{address}</a>
+            </div>}
         </div>
       </div>
     </nav>
