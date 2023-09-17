@@ -2,13 +2,18 @@ import { addAsset } from "../service/api";
 import { useState } from "react";
 import { useAccount } from "wagmi";
 import Loading from "./loading";
+import TonConnect, { toUserFriendlyAddress } from '@tonconnect/sdk';
+
 
 function ProvideButton() {
   
-  const openModal = () => {
-    if (document) {
-      (document.getElementById(`my_modal`) as HTMLFormElement).showModal();
+  const openModal = async () => {
+    if(await iswallet()){
+      if (document) {
+            (document.getElementById(`my_modal`) as HTMLFormElement).showModal();
+          }
     }
+    
   };
 
   function handleProvide() {
@@ -31,7 +36,25 @@ function ProvideButton() {
   const [location, setLocation] = useState("");
   const [loading, setLoading] = useState(false);
 
-  
+  async function iswallet(){
+    let connector = new TonConnect()
+    try{
+      await connector.restoreConnection()
+          console.log(connector.connected)
+          if(connector.connected){
+            if(connector.wallet?.account.address!=undefined){
+              setProvider(toUserFriendlyAddress(connector.wallet?.account.address, true))
+              return true
+            }
+          }else{
+            alert("You have to connect wallet!")
+            return false
+          }
+    }catch(err){
+      console.log(err)
+    }
+    return false
+  }
 
   return (
     <>
@@ -45,21 +68,22 @@ function ProvideButton() {
             <select
               className="select select-bordered w-full bg-white"
               onChange={(e) => setPowerType(e.target.value)}
+              defaultValue={'DEFAULT'}
             >
               <option disabled selected>
-                power type
+                Select power type
               </option>
               <option>Solar</option>
               <option>Hydro</option>
               <option>Wind</option>
             </select>
-            <input
+            {provider==""&&(<input
               type="text"
               placeholder="provider"
               className="input input-bordered w-full  bg-white"
               // @ts-ignore
               onChange={(e) => setProvider(e.target.value)}
-            />
+            />)}
             <input
               type="text"
               placeholder="capacity"
@@ -81,7 +105,6 @@ function ProvideButton() {
         <form method="dialog" className="modal-backdrop">
           <button>close</button>
         </form>
-        {loading&&<Loading />}
       </dialog>
     </>
   );
