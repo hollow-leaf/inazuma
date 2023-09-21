@@ -10,9 +10,7 @@ const Home: NextPage = () => {
   return (
     <div>
       <div className="flex justify-center items-center h-screen">
-        <div className="w-1/4 mx-4 flex h-96 p-5">
-            <UserDashboard/>
-        </div>
+        <UserDashboard/>
         <div className="w-1/4 mx-2">
           <MapWithNoSSR />
         </div>

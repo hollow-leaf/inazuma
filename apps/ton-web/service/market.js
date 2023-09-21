@@ -62,10 +62,7 @@ export async function buy_nft(address, prize){
             ]
         }
         const result = await connector.sendTransaction(transaction);
-        return 0
         // you can use signed boc to find the transaction 
-        const someTxData = await myAppExplorerService.getTransaction(result.boc);
-        alert('Transaction was sent successfully', someTxData);
       }
       }catch(err){
         let toaddress = toUserFriendlyAddress(address, true)
@@ -92,4 +89,32 @@ async function qrcode_generate(link, sale_address){
         console.log(url)
         img.setAttribute("src", url)
       })
+}
+
+export async function get_nft(address) {
+    try {
+        const res = await axios({
+            method: 'get',
+            url: `https://testnet.tonapi.io/v2/accounts/${address}/nfts?collection=kQDW1G_c_xIb2Iyzof123IAzQlY942Pl3H6XEJ_jRB2ez1hU&limit=1000&offset=0&indirect_ownership=false`,
+        })
+        return res
+    }
+    catch (err) {
+        console.log("error", err);
+    }
+}
+
+export async function ton_address(){
+    try{
+        let connector = new TonConnect()
+        await connector.restoreConnection()
+        if(typeof window !== 'undefined' && window.localStorage){
+            const address = connector.account.address
+            const testnetOnlyBouncableUserFriendlyAddress = toUserFriendlyAddress(address, true)
+            return testnetOnlyBouncableUserFriendlyAddress
+        }
+      }catch(err){
+        console.log(err)
+        return ""
+      }
 }

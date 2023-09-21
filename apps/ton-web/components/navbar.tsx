@@ -1,6 +1,5 @@
 import { useRouter } from "next/router";
 import Inazuma from "./inazuma";
-import ConnectButton from "./connectButton";
 import TonConnect, { toUserFriendlyAddress } from '@tonconnect/sdk';
 import { useQuery } from "@tanstack/react-query";
 import { useState, useEffect } from "react";
