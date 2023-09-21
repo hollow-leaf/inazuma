@@ -111,3 +111,9 @@ footer {
 .modal{
   background-color: rgba(48, 43, 36, 0.25);
 }
+
+.profile_info{
+  margin-right: 3%;
+  width: 25%;
+  justify-content: center;
+}
