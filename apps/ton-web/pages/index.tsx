@@ -1,22 +1,20 @@
 import type { NextPage } from "next";
-import dynamic from "next/dynamic";
-import UserDashboard from "../components/userDashboard";
-
-const MapWithNoSSR = dynamic(() => import("../components/map"), {
-  ssr: false,
-});
+import Home1 from "../components/Home/Home1";
+import Motivation from "../components/Home/Home3/Motivation";
+import Platform from "../components/Home/Home5/Platform";
+import GreenEnergy from "../components/Home/Home4/WhyGreen";
+import Introduction from "../components/Home/Home2/Introduction";
+import Features from "../components/Home/Home6";
 
 const Home: NextPage = () => {
   return (
     <div>
-      <div className="flex justify-center items-center h-screen">
-        <div className="w-1/4 mx-4 flex h-96 p-5">
-            <UserDashboard/>
-        </div>
-        <div className="w-1/4 mx-2">
-          <MapWithNoSSR />
-        </div>
-      </div>
+      <Home1/>
+      <Introduction/>
+      <Motivation/>
+      <GreenEnergy/>
+      <Platform/>
+      <Features/>
     </div>
   );
 };

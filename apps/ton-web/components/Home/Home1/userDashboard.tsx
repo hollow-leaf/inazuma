@@ -2,9 +2,9 @@
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Pie } from "react-chartjs-2";
 import Image from "next/image";
-import hydro from "../public/hydro-power.png";
-import solar from "../public/solar-cell.png";
-import wind from "../public/wind-power.png";
+import hydro from "../../../public/hydro-power.png";
+import solar from "../../../public/solar-cell.png";
+import wind from "../../../public/wind-power.png";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 function UserDashboard() {
