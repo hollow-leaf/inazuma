@@ -12,7 +12,13 @@ const Home1 = () => {
       >
         <div className="container">
           <div className="flex justify-center items-center h-screen">
-            <div className="w-1/4 mx-4 flex h-96 p-5">
+            <div className="w-1/4 mx-1 p-6">
+            <h2 className="text-xl font-bold text-black right-end">
+              User Dashboard
+            </h2>
+            <p>We provide 3 types of energy for user purchase.</p>
+              </div>
+            <div className="w-1/4 mx-3 flex">
               <UserDashboard />
             </div>
             <div className="w-1/4 mx-2">

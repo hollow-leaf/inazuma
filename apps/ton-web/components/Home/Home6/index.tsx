@@ -7,11 +7,11 @@ const Features = () => {
     <>
       <section
         id="features"
-        className="py-16 md:py-20 lg:py-28 bg-black">
-        <div className="container bg-black">
+        className="py-16 md:py-20 lg:py-28 bg-black mx-auto">
+        <div className="container bg-black mx-auto">
           <SectionTitle
             title="Our Solutions"
-            paragraph="123"
+            paragraph=""
             center
           />
 
