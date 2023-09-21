@@ -29,40 +29,15 @@ function UserDashboard() {
 
   return (
     <div className="bg-white px-10">
-      <div className="mb-3 justify-between gap-4 sm:flex">
         <div>
           <h2 className="text-xl font-bold text-black dark:text-white">
             User Dashboard
           </h2>
-          <div className="mx-auto">
-            <div className="w-12 h-12">
-              <Image
-              src={hydro}
-              alt="hydro-power"         
-            />
-            </div>
-            <div className="w-12 h-12">
-            <Image
-              src={solar}
-              alt="solar-power"
-              // blurDataURL="data:..." automatically provided
-              placeholder="blur" // Optional blur-up while loading
-            />
-            </div>
-            <div className="w-12 h-12 ">
-            <Image
-              src={wind}
-              alt="wind-power"
-              // blurDataURL="data:..." automatically provided
-              placeholder="blur" // Optional blur-up while loading
-            />
-            </div>
-          </div>
+          
         </div>
         <div className="h-screen">
           <Pie data={pieData} options={options} />
         </div>
-      </div>
     </div>
   );
 }

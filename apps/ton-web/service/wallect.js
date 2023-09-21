@@ -1,7 +1,7 @@
 import TonConnect, { toUserFriendlyAddress } from '@tonconnect/sdk';
 
 export async function connectwallet() {
-    connector = new TonConnect({manifestUrl:"https://gold-xenial-catfish-998.mypinata.cloud/ipfs/QmNQiXeY1si1uVA6KQfUq8nEGAHmmTrk5TjXDY8dCnRhtD"});
+   let  connector = new TonConnect({manifestUrl:"https://gold-xenial-catfish-998.mypinata.cloud/ipfs/QmNQiXeY1si1uVA6KQfUq8nEGAHmmTrk5TjXDY8dCnRhtD"});
     if(!connector.connected){
         try{
             connector = new TonConnect({manifestUrl:"https://gold-xenial-catfish-998.mypinata.cloud/ipfs/QmNQiXeY1si1uVA6KQfUq8nEGAHmmTrk5TjXDY8dCnRhtD"});
@@ -15,8 +15,7 @@ export async function connectwallet() {
               if(wallet!=null){
                 const rawAddress = wallet["account"]['address']
                 const testnetOnlyBouncableUserFriendlyAddress = toUserFriendlyAddress(rawAddress, true)
-                setAddress(testnetOnlyBouncableUserFriendlyAddress)
-                setConnect(true)
+                return true
               }
             })
           }catch(err){
@@ -24,3 +23,20 @@ export async function connectwallet() {
           }
     }
   }
+
+export async function iswallet(){
+  let connector = new TonConnect()
+  try{
+    await connector.restoreConnection()
+        if(connector.connected){
+          if(connector.wallet?.account.address!=undefined){
+            return true
+          }
+        }else{
+          return false
+        }
+  }catch(err){
+    console.log(err)
+  }
+  return false
+}
