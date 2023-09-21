@@ -6,6 +6,7 @@ import Loading from "../components/loading";
 import Alert from "../components/alert";
 import {iswallet, connectwallet} from "../service/wallect"
 import { ton_address } from "../service/market";
+import User_info from "../components/user_info";
 
 function Page() {
   const { isLoading, error, data } = useQuery({
@@ -27,7 +28,8 @@ function Page() {
       {data==""||data==undefined? (
         <button onClick={connectwallet}>Connect Wallet</button>
       ) : (
-        <div className="w-1/2 mx-auto my-10">
+        <div className="flex w-1/2 mx-auto my-10">
+          <User_info />
           <SellerTable address={data} />
         </div>
       )}
