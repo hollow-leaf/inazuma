@@ -40,11 +40,6 @@ footer {
   height: 80vh;
 }
 
-#__next {
-  background-image: url("../photo/82877075.jpg");
-  
-}
-
 .bg-white {
   border-radius: 2rem;
   background: linear-gradient(90deg, rgb(255, 255, 255, 0.8) 0%, rgb(101,190,132, 0.8) 0%, rgb(112, 200, 247, 0.8) 100%);
