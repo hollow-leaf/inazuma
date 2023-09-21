@@ -10,7 +10,7 @@ const Introduction = () => {
     id="what"
     className="relative z-10 py-16 md:py-20 lg:py-28 bg-black"
   >
-      <div className="container">
+      <div className="container mx-auto">
         <SectionTitle
           title="Introduction"
           paragraph="The goal of our project is to realize a decentralized green energy platform provider. We use Co2 storage to store and retrieve the acquired green energy metadata, and sell green energy to buyers, who can obtain Ton NFTs environmental certification."

@@ -6,7 +6,7 @@ const Platform = () => {
   
   return (
     <section className="relative z-10 py-16 md:py-20 lg:py-28">
-      <div className="container">
+      <div className="container mx-auto">
         <SectionTitle
           title="Why platform?"
           paragraph="For businesses, our platform provides a simple yet effective way to fulfill their Environmental, Social, and Governance (ESG) commitments. By purchasing green energy on our platform, companies can demonstrate their active participation in sustainable energy and provide compelling evidence in their ESG reports."

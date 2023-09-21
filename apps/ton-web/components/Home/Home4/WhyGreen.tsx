@@ -6,7 +6,7 @@ const GreenEnergy = () => {
   
   return (
     <section className="relative z-10 py-16 md:py-20 lg:py-28 bg-black">
-      <div className="container">
+      <div className="container mx-auto">
         <SectionTitle
           title="Why green energy?"
           paragraph="There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some form."
